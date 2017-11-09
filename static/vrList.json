@@ -1,0 +1,33 @@
+{
+	"list":[
+		{
+			"name":"整套案例",
+			"href":"https://yun.kujiale.com/design/3FO4IU9IDN9Y/show",
+			"imgUrl":"icon_colors.gif"
+		},
+		{
+			
+			"name":"客厅",
+			"href":"https://www.kujiale.com/xiaoguotu/pano/3FO4CEWD0HGK",
+			"imgUrl":"icon_html.gif"
+		},
+		{
+			
+			"name":"书房",
+			"href":"https://www.kujiale.com/xiaoguotu/pano/3FO4CEUJ5AJ3",
+			"imgUrl":"icon_eBooks.gif"
+		},
+		{
+			
+			"name":"次卧",
+			"href":"https://www.kujiale.com/xiaoguotu/pano/3FO4D0P64YCA",
+			"imgUrl":"icon_css.gif"
+		},
+		{
+			
+			"name":"卫生间",
+			"href":"https://www.kujiale.com/xiaoguotu/pano/3FO4D0MCF732",
+			"imgUrl":"icon_music.gif"
+		}
+	]
+}
