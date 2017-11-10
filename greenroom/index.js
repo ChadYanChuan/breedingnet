@@ -2,7 +2,7 @@ var express = require('express');
 var http = require('http');
 var mysql = require('mysql');
 var appBack = express();
-let routes = require('./routes/index.js');
+var routes = require('./routes/index.js');
 
 appBack.use("/",routes);
 

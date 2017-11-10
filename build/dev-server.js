@@ -12,6 +12,8 @@ var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
 
+// var routes = require('../greenroom/routes/index.js');
+
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false
@@ -62,6 +64,8 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
+// app.use("/greenroom/",routes);
+
 var uri = 'http://localhost:' + port
 
 var _resolve
@@ -70,6 +74,7 @@ var readyPromise = new Promise(resolve => {
 })
 
 console.log('> Starting dev server...')
+
 devMiddleware.waitUntilValid(() => {
   console.log('> Listening at ' + uri + '\n')
   // when env is testing, don't need open it
@@ -78,6 +83,8 @@ devMiddleware.waitUntilValid(() => {
   }
   _resolve()
 })
+
+
 
 var server = app.listen(port)
 

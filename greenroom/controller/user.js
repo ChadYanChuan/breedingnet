@@ -1,21 +1,14 @@
 var mysql = require('mysql');
-
-var conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123456',
-    database: 'test',
-    port: 3306
-});
-conn.connect();
-
+var db = require('../common/mysql.js');
 
 exports.getUsers = function(req,res){
+	
 	var selectSQL = 'select * from user';
-	conn.query(selectSQL,function(err2,rows){
-		if (err2) console.log(err2);
+
+	db.query(selectSQL,function(err,rows,fields){
+		if (err) console.log(err);
 		console.log(rows);
 		res.send(rows);
 	});
-
+	
 }
