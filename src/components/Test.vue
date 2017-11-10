@@ -2,8 +2,11 @@
 	<div id="test" class="testDiv">
 		<a href="#/" class="back">返回</a>
 		<div class="row">
-			<div class="col-6">modelA</div>
-			<div class="col-6">modelB</div>
+			<div class="col-sm-6">modelA</div>
+			<div class="col-sm-6">modelB</div>
+		</div>
+		<div class="col-xs-3">
+		  <a href="#" class="btn btn-block btn-lg btn-default">Default</a>
 		</div>
 		<h1 v-on:click="testClick(msg)">{{msg}}</h1>
 		<router-link :to='{name:"testa",params:test}'>Testa</router-link>

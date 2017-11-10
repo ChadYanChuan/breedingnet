@@ -20,7 +20,7 @@
 </template>
 <script type="text/javascript">
 	import vrframe from './vrFrame.vue';
-
+	import {url} from '../common/config.vue';
 	export default {
 		data () {
 			return {
@@ -31,7 +31,7 @@
 		},
 		mounted () {
 			var self = this;
-			this.axios.get('/static/vrList.json')
+			this.axios.get(url+'vrList.json')
 			  .then(function (res) {
 			    self.list = res.data.list;
 			  })

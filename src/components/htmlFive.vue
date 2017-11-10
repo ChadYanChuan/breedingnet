@@ -18,7 +18,7 @@
 
 <script type="text/javascript">
 	import headerVue from './Header.vue';
-
+	import {url} from './common/config.vue';
 	export default {
 		
 		data () {
@@ -32,7 +32,7 @@
 		},
 		mounted () {
 			var self = this;
-			this.axios.get('/static/h5.json')
+			this.axios.get(url+'h5.json')
 			  .then(function (res) {
 			    self.htmlList.list = res.data.htmlList;
 			  })

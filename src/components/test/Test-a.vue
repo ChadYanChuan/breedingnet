@@ -6,6 +6,7 @@
 		<h3>id is {{ta.id}};name is {{ta.name}};rmb is {{ta.rmb}}</h3>
 		<p>子组件的值为:{{childMsg}}</p>
 		<input type="text" placeholder="parentMsg" v-model="parentMsg" name="">
+		<hr/>
 		<cmm v-bind:childmsg="parentMsg" v-on:listenChild="showChildMsg"></cmm>
 	</div>
 </template>
