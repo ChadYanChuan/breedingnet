@@ -1,0 +1,48 @@
+<krpano>
+	
+	<!-- 左上角 人气 logo -->
+	<!-- <layer name="skin_selector" style="img" keep="true" type="container" align="lefttop" x="10" y="10" width="125" height="300">
+		<layer name="skin2" url="../panos/icon/logo2.png" html="Flat Light Skin" align="lefttop" y="50">
+			<layer name="statistics_txt"
+				style="webvr_button_style"
+				alpha="0.5" 
+				y="50"
+				keep="true" html="人气:11111"  align="left" background="false" vcenter="true"
+				css="text-align:center; font-family:微软雅黑; border:0; font-size:16px; color:#ffffff;"/>
+		</layer>
+	</layer> -->
+
+	<!-- 图标按钮 -->
+	<layer name="mobile_bottom_bg" style="img" crop="0|140|70|149" align="bottom" width="100%" zorder="1" autoalpha="true" alpha="0" enabled="false" />
+	
+	<layer name="bottomright_btn" style="" keep="true" type="container" autoalpha="true" alpha="1" bgalpha="0" align="rightbottom" 
+		y="10" width="800" height="100" zorder="2" onloaded="btn_position();">
+
+		<layer name="bottom_0" style="img|btn" bid="vr_btn" _x="0" onclick="webvr.enterVR();" />
+		<!-- <layer name="bottom_1" style="img|btn" bid="vr2_btn" _x="770" onclick="webvr.enterVR();" /> -->
+		<!-- thumbstoggle(bottom_2); -->
+		<layer name="bottom_2" style="img|btn" bid="thum_btn" _x="70" state="close" onclick="thumbstoggle(bottom_2);" />
+		<!-- 评论 -->
+		<!-- <layer name="bottom_3" style="img|btn" bid="say_btn" _x="140" onclick="btn_select(say_btn);btn_qrcode();" /> -->
+		<!-- <layer name="bottom_4" style="img|btn" bid="scheme_btn" _x="210" onclick="btn_select(scheme_btn);show_win(scheme_bg,120,true);" /> -->
+		<!-- <layer name="bottom_5" style="img|btn" bid="replace_btn" _x="280" onclick="btn_select(replace_btn);show_win(replace_bg,120,true);" /> -->
+		<!-- pausesoundtoggle(bg6); -->
+		<layer name="bottom_6" style="img|btn" bid="sound_btn" _x="700" state="play" onclick="bgsnd_action(bottom_6);" visible="true" />
+		
+		<layer name="bottom_7" style="img|btn" bid="share_btn" _x="350" state="close" onclick="sharetoggle(bottom_7,bottom_10);" />
+		<!-- 商品标签 -->
+		<!-- <layer name="bottom_8" style="img|btn" bid="label_btn" _x="420" onclick="" /> -->
+
+		<layer name="bottom_9" style="img|btn" bid="help_btn" _x="490" onclick="" visible="false" />
+		<layer name="bottom_10" style="img|btn" bid="about_btn" _x="560" state="close" onclick="abouttoggle(bottom_10,bottom_7);" />
+		
+		<layer name="bottom_11" style="img|btn" bid="fullscreen_btn" _x="630" onclick="set(fullscreen,true);" />
+		
+	</layer>
+
+	
+
+	<!-- end 图标按钮 -->
+	<!-- <events name="botton_event" keep="true" onclick="hide_win();"/> -->
+
+</krpano>

@@ -1,0 +1,95 @@
+<krpano>
+	
+	<!-- 关于 -->
+	<layer name="about_bg" keep="true" type="container" visible="true" height="400" width="600" align="center"  y="calc:-1080-250"
+		bgroundedge="10" bgalpha="0.7" bgcapture="true" parent="dm_mask" if="!device.mobile">
+
+		<layer name="about_logo" url="%SWFPATH%/panos/icon/title.png" width="80%" height="100" align="top" y="50"/>
+
+		             
+		<layer name="about_txt" onloaded="" align="bottom" background="false" vcenter="true"
+			url="%SWFPATH%/plugins/textfield.swf" y="50" keep="true"
+			html="简单家家装设计平台[br][br]版权所有2017 jiandanjia Inc. 保留所有权力[br]简单家家装软件平台免费使用服务条款和免责声明[br][br]当前版本:2.0"
+			css="text-align:center; font-family:微软雅黑; font-size:20px; color:#ffffff;">
+		</layer>
+	</layer>
+	<!-- 关于 简介  移动版 -->
+	<layer name="about_bg" keep="true" type="container" visible="true" height="400" width="90%" align="center"  y="calc:-1080-250"
+		bgroundedge="10" bgalpha="0.7" bgcapture="true" parent="dm_mask" devices="mobile">
+
+		<layer name="about_logo" url="%SWFPATH%/panos/icon/title.png" width="90%" height="100" align="top" y="30"/>
+
+		             
+		<layer name="about_txt" onloaded="" align="bottom" width="98%" background="false" vcenter="true"
+			url="%SWFPATH%/plugins/textfield.swf" y="30" keep="true"
+			html="简单家家装设计平台[br][br]版权所有2017 jiandanjia Inc. 保留所有权力[br]简单家家装软件平台免费使用服务条款和免责声明[br][br]当前版本:2.0"
+			css="text-align:center; font-family:微软雅黑; font-size:20px; color:#ffffff;">
+		</layer>
+	</layer>
+	
+	<!-- 分享 -->
+	<layer name="share_bg" keep="true" type="container" visible="true" width="530" height="530" align="top" handcursor="false" y="-1080-540"
+		bgroundedge="10" bgalpha="0.7" bgcapture="true" parent="dm_mask" if="!device.mobile">
+
+		<layer name="qrcodebk" type="container" keep="true" align="center" enabled="false" bgcapture="true" bgalpha="1" bgcolor="0xffffff"  width="250" height="250" y="-30">
+			
+			<layer name="qrcode" type="container" keep="true" align="center"  width="240" height="240" enabled="false" onloaded="addqrcode();" >
+				<layer name="qrcode_portrait" url="" keep="true" x="-5" align="center" 
+				width="80" height="80" enabled="false" onloaded="img_bgroundedge(10);"/>
+			</layer>
+
+		</layer>
+		             
+		<layer name="share_txt" enabled="false"
+			url="%SWFPATH%/plugins/textfield.swf" y="90"
+			keep="true" html="打开微信使用“扫一扫”分享方案"  align="bottom" background="false" vcenter="true"
+			css="text-align:center; font-family:微软雅黑; font-size:20px; color:#ffffff;">
+		</layer>
+				
+	</layer>
+
+	<!-- 分享移动版 -->
+	<layer name="share_bg" keep="true" type="container" visible="true" width="90%" height="380" align="top" handcursor="false" y="-1080-540"
+		bgroundedge="10" bgalpha="0.7" bgcapture="true" parent="dm_mask" devices="mobile">
+
+		<layer name="qrcodebk" type="container" keep="true" align="center" enabled="false" bgcapture="true" bgalpha="1" bgcolor="0xffffff"  width="250" height="250" y="-30">
+			
+			<layer name="qrcode" target_id="share_qrcode" type="container" keep="true" align="center"  width="240" height="240" enabled="false" onloaded="addqrcode();" >
+				<layer name="qrcode_portrait" url="" keep="true" x="-5" align="center" 
+				width="80" height="80" enabled="false" onloaded="img_bgroundedge(10);"/>
+			</layer>
+
+		</layer>
+		             
+		<layer name="share_txt" enabled="false"
+			url="%SWFPATH%/plugins/textfield.swf" y="40"
+			keep="true" html="打开微信使用“扫一扫”快速分享"  align="bottom" background="false" vcenter="true"
+			css="text-align:center; font-family:微软雅黑; font-size:20px; color:#ffffff;">
+		</layer>
+		
+	</layer>
+	<!-- 评论 -->
+	<layer name="say_bg" keep="true" type="container" align="center" width="430"  height="380" bgcolor="0x000000" bgalpha="0.6"
+		autoalpha="true" alpha="0" visible="false" bgroundedge="10"
+		css="font-family:微软雅黑; font-size:16px; color:#ffffff; border-radius: 50px;">
+		
+		<layer name="say_sao" url="%SWFPATH%/plugins/textfield.swf" keep="true" html="打开微信“扫一扫”登录"
+		 width="100%" y="30" background="false" css="text-align:center;font-family:微软雅黑; font-size:16px; color:#ffffff;" />
+		<!-- 二维码图片 -->
+		<layer name="say_qrcode" type="container" width="100%" height="250" y="80" css="">
+			<layer name="say_code" url="../panos/icon/erweima.png" x="90" width="250" height="100%"/>
+		</layer>
+
+	</layer>
+	
+	<!-- <layer name="loading_vr" keep="true" type="container" width="100%" height="100%" bgcolor="0x000000" bgalpha="0.6" alpha="1" autoalpha="true">
+			
+			<layer name="loading_body" url="../panos/icon/background.jpg" width="100%" height="100%">
+				
+				<layer name="logo" url="../panos/icon/vjialogo.png" align="center" width="385" height="217" />
+					
+			</layer>
+			
+	</layer> -->
+
+</krpano>

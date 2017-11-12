@@ -1,7 +1,7 @@
 <template>
 
   <div class="hello">
-    <headerVue index="1"/>
+    <navbar />
     <skyVue />
     <contetnVue />
     <footerVue />
@@ -9,8 +9,8 @@
 </template>
 
 <script>
+import navbar from './navbar.vue';
 import skyVue from './sky/index.vue';
-import headerVue from './Header.vue';
 import footerVue from './Footer.vue';
 import contetnVue from './indexContent/index.vue';
 
@@ -21,7 +21,7 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
-  components: {headerVue,skyVue,contetnVue,footerVue}
+  components: {navbar,skyVue,contetnVue,footerVue}
 }
 </script>
 

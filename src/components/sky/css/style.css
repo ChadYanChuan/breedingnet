@@ -189,8 +189,14 @@
 }
 .sky_body{
   width: 100%;
-  height: 100%;
+  height: 60px;
+  line-height: 60px;
+  margin-top: -30px;
+  color: #999;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
 }

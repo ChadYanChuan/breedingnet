@@ -1,11 +1,10 @@
 <template>
 
 	<div class="site-content">
-		<h2>{{msg}}</h2>
 		<div class="taxonimy-bundles-category">
 			<header class="archive-header">
-				<h2 class="title">秘诀 &amp; 技巧 - 最新采集</h2>
-				<p class="archive-p">每周更新的手工精选的最佳文章、教程、免费赠品、代码片段等等...</p>
+				<h2 class="title">前端集锦</h2>
+				<p class="archive-p">Men are wise in proportion, not to their experience, but to their capacity for  experience.</p>
 			</header>
 
 			<div class="bundle-block" v-for="tip in tipsList">
@@ -50,3 +49,6 @@
 		}
 	}
 </script>
+<style>
+	
+</style>

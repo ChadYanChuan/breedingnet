@@ -1,0 +1,151 @@
+       
+<krpano>
+	                      
+	<layer name="thumb_bg" keep="true" type="container" align="bottom" bgcapture="true" handcursor="false" bgalpha="0.6" enabled="true" width="100%" 
+		height="200" y="-210" parent="dm_mask">
+		                   
+		<layer name="thumb_left_btn" style="img" autoalpha="true" align="left" crop="75|215|82|82" 
+			 onover="tween(alpha,1);" onout="tween(alpha,0.4);"
+			ondown="onover(); asyncloop(pressed, layer[thumb_scrollarea].scrollby(+1,0));" 
+			onup="onout();"/>
+		                   
+		<layer name="thumb_right_btn" style="img" autoalpha="true" align="right" crop="155|215|82|82" 
+			 onover="tween(alpha,1);" onout="tween(alpha,0.4);"
+			ondown="onover(); asyncloop(pressed, layer[thumb_scrollarea].scrollby(-1,0));" 
+			onup="onout();"/>
+
+		<layer name="thumb_container" keep="true" type="container" align="center" height="100%" >
+			                            
+			<layer name="thumb_scrollarea" keep="true"
+				       alturl="%SWFPATH%/plugins/scrollarea.js"
+				       align="center" height="160"
+				       direction="h"
+				       draggable="true"
+				       onhover_autoscrolling="false"
+				       overscroll="1.0"
+				       friction="0.95"
+				       acceleration="0.08"
+				       returnacceleration="0.15"
+				       momentum="0.06"
+				       onscroll=""
+				       onloaded=""
+				       />
+		</layer>
+
+	</layer>
+	
+	<action name="thumb_for">
+		for(set(i,0), i LT scene.count, inc(i), 
+			                      
+			txtadd(thumb_bg,'thumb_bg_',get(i));
+			addlayer(get(thumb_bg));
+			set(layer[get(thumb_bg)].type,container);
+			set(layer[get(thumb_bg)].width,240);
+			set(layer[get(thumb_bg)].height,160);
+			set(layer[get(thumb_bg)].parent,thumb_scrollarea);
+			set(layer[get(thumb_bg)].maskchildren,true);
+			set(layer[get(thumb_bg)].edge,lefttop);
+			set(layer[get(thumb_bg)].keep,true);
+			set(layer[get(thumb_bg)].bgcapture,true);
+			set(layer[get(thumb_bg)].bgalpha,0.6);
+			set(layer[get(thumb_bg)].bgroundedge,4);
+			set(layer[get(thumb_bg)].bgcolor,0xffffff);
+			set(layer[get(thumb_bg)].x, calc(260 * i + 20));
+			set(layer[get(thumb_bg)].nextscene,get(i));
+			set(layer[get(thumb_bg)].onclick,   txtadd(calls,'loadscene(',get(nextscene),', null, MERGE,OPENBLEND(0.5, 0.0, 0.75, 0.05, linear));');
+			
+			plugin[dm_ajax].goto_call('all','all',get(calls)););
+
+			
+			txtadd(thumb_load,'thumb_load_',get(i));
+			addlayer(get(thumb_load));
+			txtadd(layer[get(thumb_load)].url,get(dm_host),'%SWFPATH%/panos/icon/lod.gif');
+			set(layer[get(thumb_load)].enabled,false);
+			set(layer[get(thumb_load)].keep,true);
+			set(layer[get(thumb_load)].align,center);
+			set(layer[get(thumb_load)].parent,get(thumb_bg));
+
+
+			txtadd(thumb_img,'thumb_img_',get(i));
+			addlayer(get(thumb_img));
+			set(layer[get(thumb_img)].url,scene[get(i)].thumburl);
+			set(layer[get(thumb_img)].width,100%);
+			set(layer[get(thumb_img)].height,100%);
+			set(layer[get(thumb_img)].enabled,false);
+			set(layer[get(thumb_img)].keep,true);
+			txtadd(layer[get(thumb_img)].onloaded,'img_bgroundedge(8);
+			removelayer(',get(thumb_load),');');
+			set(layer[get(thumb_img)].parent,get(thumb_bg));
+			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+			txtadd(thumb_txt,'thumb_txt',get(i));
+			addlayer(get(thumb_txt));
+			set(layer[get(thumb_txt)].url,calc('%SWFPATH%/plugins/textfield.swf'));
+			set(layer[get(thumb_txt)].parent,get(thumb_bg));
+			set(layer[get(thumb_txt)].html,get(room[get(i)].title));
+			set(layer[get(thumb_txt)].align,bottom);
+			set(layer[get(thumb_txt)].width,100%);
+			set(layer[get(thumb_txt)].y,-1);
+			set(layer[get(thumb_txt)].background,true);
+			set(layer[get(thumb_txt)].backgroundcolor,0x000000);
+			set(layer[get(thumb_txt)].backgroundalpha,0.6);
+			set(layer[get(thumb_txt)].padding, 8 0 8 0);
+			set(layer[get(thumb_txt)].enabled, false);
+			set(layer[get(thumb_txt)].css,'text-align:center; font-family:微软雅黑; font-size:14px; color:#ffffff;');
+			set(layer[get(thumb_txt)].keep,true);
+		); 
+		set(layer[thumb_scrollarea].width, calc(260 * i  + 20));
+		layer[thumb_scrollarea].setcenter(0,100);
+		LeftRightBtnVisible();
+	</action>
+
+	<events name="thumb_event" keep="true" 
+		onnewscene="delayedcall(0,thumb_selected();)" 
+		onloaderror="dm_onloaderror();"
+		onresize="LeftRightBtnVisible();"
+	/>
+
+	                                   
+	<action name="dm_onloaderror" type="Javascript"><![CDATA[
+		var lasterror = krpano.get("lasterror");
+		console.log(lasterror);
+		console.log(lasterror.indexOf("plugin[thumb_img_"))
+		if(lasterror.indexOf("plugin[thumb_img_") > -1){
+			console.log("加载失败,开始加载img");
+			var arr1 = lasterror.split(" - ");
+			var arr2 = arr1[1].split("");
+			var plugins = arr1[0] + ".url";
+			var urls       = arr2[1].replace(/.jpg/, ".img");
+			krpano.set(plugins,urls);
+		}
+	]]></action>   
+	                      
+	<action name="thumb_selected">
+		if(_thumb_img,
+			set(layer[get(_thumb_img)].bgborder,'0 0xffffff 1');
+			set(layer[get(_thumb_img)].enabled,true);
+		);
+
+		txtadd(_thumb_img,'thumb_bg_',get(scene[get(xml.scene)].room));
+		if(layer[get(_thumb_img)],
+			set(layer[get(_thumb_img)].bgborder,'1 0xffffff 1');
+			set(layer[get(_thumb_img)].enabled,false);
+			layer[thumb_scrollarea].scrolltocenter(calc(layer[get(_thumb_img)].x + 120),0)
+		);
+
+	
+	</action>
+
+	                         
+	<action name="LeftRightBtnVisible"><![CDATA[
+		js(testJs("mmmmmmmm-----------"));
+		sub(layer[thumb_container].width,stagewidth,170);
+		if(layer[thumb_container].width > layer[thumb_scrollarea].width,
+			tween(layer[thumb_left_btn].alpha,0);
+			tween(layer[thumb_right_btn].alpha,0);
+		,
+			tween(layer[thumb_left_btn].alpha,0.4);
+			tween(layer[thumb_right_btn].alpha,0.4);
+		);
+	]]></action>
+	
+</krpano>

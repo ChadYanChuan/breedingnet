@@ -4,6 +4,7 @@
 		<div class="clouds_one"></div>
 		<div class="clouds_two"></div>
 		<div class="clouds_three"></div>
+		<div class="sky_body">{{msg}}</div>
 	</div>
 
 </template>
@@ -15,7 +16,7 @@
 		data () {
 			return {
 				skyName:'天空',
-				msg: 'Welcome to learn from each other!!!'
+				msg: '勇往直前，学无止境!!!'
 			}
 		}
 	}
