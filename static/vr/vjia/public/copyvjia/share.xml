@@ -1,0 +1,107 @@
+<krpano>
+	<!--动态生成二维码-->
+	<action name="addqrcode" type="Javascript">
+		<![CDATA[
+
+		var toUtf8 = function(str) {   
+			    var out, i, len, c;   
+			    out = "";   
+			    len = str.length;   
+			    for(i = 0; i < len; i++) {   
+			    	c = str.charCodeAt(i);   
+			    	if ((c >= 0x0001) && (c <= 0x007F)) {   
+			        	out += str.charAt(i);   
+			    	} else if (c > 0x07FF) {   
+			        	out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));   
+			        	out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));   
+			        	out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));   
+			    	} else {   
+			        	out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));   
+			        	out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));   
+			    	}   
+			    }   
+			    return out;   
+			}
+
+		caller.sprite.id = "share_qrcode";
+		caller.sprite.title = "分享二维码";
+		var rs = parseInt(caller.sprite.style.width);
+		$("#share_qrcode").qrcode({
+			render: "canvas",
+			width: rs,
+			height:rs,
+			text: toUtf8(window.location.href)
+		});
+
+		]]>
+	</action>
+	<!-- 关于 -->
+	<layer name="about_bg" keep="true" type="container" visible="true" height="400" width="600" align="center"  y="calc:-1080-250"
+		bgroundedge="10" bgalpha="0.7" bgcapture="true" parent="dm_mask" if="!device.mobile">
+
+		<layer name="about_logo" url="images/title.png" width="80%" height="100" align="top" y="50"/>
+
+		             
+		<layer name="about_txt" onloaded="" align="bottom" background="false" vcenter="true"
+			url="/static/vr/plugins/textfield.swf" y="50" keep="true"
+			html="简单家家装设计平台[br][br]版权所有2017 jiandanhome Inc. 保留所有权力[br]简单家家装软件平台免费使用服务条款和免责声明[br][br]当前版本:2.0"
+			css="text-align:center; font-family:微软雅黑; font-size:20px; color:#ffffff;">
+		</layer>
+	</layer>
+	<!-- 关于 简介  移动版 -->
+	<layer name="about_bg" keep="true" type="container" visible="true" height="400" width="90%" align="top"  y="-400"
+		bgroundedge="10" bgalpha="0.7" bgcapture="true" parent="dm_mask" devices="mobile">
+
+		<layer name="about_logo" url="images/title.png" width="90%" height="100" align="top" y="30"/>
+
+		             
+		<layer name="about_txt" onloaded="" align="bottom" width="98%" background="false" vcenter="true"
+			url="/static/vr/plugins/textfield.swf" y="30" keep="true"
+			html="简单家家装设计平台[br][br]版权所有2017 jiandanhome Inc. 保留所有权力[br]简单家家装软件平台免费使用服务条款和免责声明[br][br]当前版本:2.0"
+			css="text-align:center; font-family:微软雅黑; font-size:20px; color:#ffffff;">
+		</layer>
+	</layer>
+	
+	<!-- 分享 -->
+	<layer name="share_bg" keep="true" type="container" visible="true" width="530" height="530" align="top" handcursor="false" y="-1080-540"
+		bgroundedge="10" bgalpha="0.7" bgcapture="true" parent="dm_mask" if="!device.mobile">
+
+		<layer name="qrcodebk" type="container" keep="true" align="center" enabled="false" bgcapture="true" bgalpha="1" bgcolor="0xffffff"  width="250" height="250" y="-30">
+			
+			<layer name="qrcode" type="container" keep="true" align="center"  width="240" height="240" enabled="false" onloaded="addqrcode();" >
+				<layer name="qrcode_portrait" url="" keep="true" x="-5" align="center" 
+				width="80" height="80" enabled="false" onloaded="img_bgroundedge(10);"/>
+			</layer>
+
+		</layer>
+		             
+		<layer name="share_txt" enabled="false"
+			url="/static/vr/plugins/textfield.swf" y="90"
+			keep="true" html="打开微信使用“扫一扫”分享方案"  align="bottom" background="false" vcenter="true"
+			css="text-align:center; font-family:微软雅黑; font-size:20px; color:#ffffff;">
+		</layer>
+				
+	</layer>
+
+	<!-- 分享移动版 -->
+	<layer name="share_bg" keep="true" type="container" visible="true" width="90%" height="380" align="top" handcursor="false" y="-400"
+		bgroundedge="10" bgalpha="0.7" bgcapture="true" parent="dm_mask" devices="mobile">
+
+		<layer name="qrcodebk" type="container" keep="true" align="center" enabled="false" bgcapture="true" bgalpha="1" bgcolor="0xffffff"  width="250" height="250" y="-30">
+			
+			<layer name="qrcode" target_id="share_qrcode" type="container" keep="true" align="center"  width="240" height="240" enabled="false" onloaded="addqrcode();" >
+				<layer name="qrcode_portrait" url="" keep="true" x="-5" align="center" 
+				width="80" height="80" enabled="false" onloaded="img_bgroundedge(10);"/>
+			</layer>
+
+		</layer>
+		             
+		<layer name="share_txt" enabled="false"
+			url="/static/vr/plugins/textfield.swf" y="40"
+			keep="true" html="打开微信使用“扫一扫”快速分享"  align="bottom" background="false" vcenter="true"
+			css="text-align:center; font-family:微软雅黑; font-size:20px; color:#ffffff;">
+		</layer>
+		
+	</layer>
+	
+</krpano>

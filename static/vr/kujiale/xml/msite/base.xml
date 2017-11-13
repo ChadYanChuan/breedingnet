@@ -1,0 +1,322 @@
+<krpano>
+	<action name="loadingHide" type="Javascript">
+		<![CDATA[
+			var load = document.getElementById("loading");
+			load.style.display = "none";
+		]]>
+	</action>
+	<style
+        name="webvr_button_style"
+        border="false"
+        shadow="0.01"
+        shadowrange="9.0"
+        shadowcolor="0xFFFFFF"
+        shadowalpha="0.5"
+    />
+	
+    <autorotate enabled="true" waittime="1.5" speed="-5"/>
+    
+	
+	<style name="text_title_up" background="true" backgroundalpha="0.6" backgroundcolor="0x000000"
+		css="text-align:center; font-size:16px; color:#ffffff; padding:2px 8px; border-radius:5px;" y="50" 
+	 	/>
+	<style name="skin_hotspotstyle_title" url="/static/vr/kujiale/xml/images/default.png" scale="0.5" edge="top" oy="0" distorted="false"
+	       tooltip=""
+	       onclick=""
+	       onloaded="do_crop_animation(120,100, 50);"
+	       />
+	       
+	<include url="/static/vr/plugins/webvr.xml"/>
+	
+	<!--音乐-->
+	<plugin name="soundinterface"
+        url.flash="/static/vr/plugins/soundinterface.swf"
+        url.html5="/static/vr/plugins/soundinterface.js"
+        rootpath=""
+        preload="true"
+        keep="true"
+        />
+    <plugin
+        name="skin_gyro"
+        keep="true"
+        url="/static/vr/plugins/gyro2.js"
+        devices="html5"
+        enabled="false"
+        camroll="true"
+        friction="0"
+        velastic="0"
+        onunavailable=""
+    />
+    
+	<layer name="dm_mask" keep="true" isfirst="false" type="container" width="100%" height="100%" onclick="hide_win();" bgcolor="0x000000" enabled="true" handcursor="true" bgalpha="0" 
+		bgcapture="true" zorder="3" alpha="0" autoalpha="true" onloaded="add_class();" align="bottom">
+		
+	</layer>
+	<layer name="thumb_bg" type="container" bgcapture="true" handcursor="true" bgcolor="0x000000" bgalpha="0.6" autoalpha="true" alpha="1" width="100%" height="25%"
+		align="bottom" y="-80" keep="true" parent="dm_mask">
+		
+		<layer name="thumbs_container" align="center" y="5%"  bgalpha="0" autoalpha="true" alpha="1" type="container" keep="true" width="100%" height="90%">	
+			<layer name="thumbs_list" 
+				url.flash="/static/vr/plugins/scrollarea.swf" 
+				url.html5="/static/vr/plugins/scrollarea.js"
+				align="center"
+				width="100%" 
+				height="95%"
+		        direction="h"
+		        y="5%"
+		        draggable="true"
+		        onhover_autoscrolling="false"
+		        overscroll="1.0"
+		        friction="0.95"
+		        acceleration="0.08"
+		        returnacceleration="0.15"
+		        momentum="0.06"
+				onloaded="thumbsListLoad();"
+				onscroll="">
+				<layer name="thumbs_w" keep="true" type="container" width="20%" height="100%" bgcolor="0x000000" enabled="true" handcursor="true" bgalpha="0" 
+						bgcapture="true" zorder="3" alpha="0" autoalpha="true" align="bottom" />
+				</layer>
+		</layer>
+
+	</layer>
+	<events name="thumb_a" keep="true" 
+		onnewscene="thumb_selected();"
+		
+		/>
+	<events name="vrclick" keep="true"
+		onclick='js(roomHideBtn())' />	
+	
+	<!-- loading animation events 加载logo -->
+	<events name="loadinganimation" keep="true"
+	        onxmlcomplete="loadinganimation_startloading();"
+	        onloadcomplete="delayedcall(0.25, loadingHide());isFirstLoad();"
+	        />
+	<action name="show_map">
+		tween(layer[dm_mask].alpha,1);
+		set(layer[thumb_bg].alpha,0);
+		tween(layer[skin_map_layer].alpha,1);
+		tween(layer[skin_map_layer].y,0);
+	</action>
+	<action name="hide_map">
+		tween(layer[dm_mask].alpha,0);
+		tween(layer[skin_map_layer].alpha,0);
+		tween(layer[skin_map_layer].y,-50%);
+	</action>
+	<action name="loadscene">
+		loadscene(%1,null,MERGE,OPENBLEND(0.5, 0.0, 0.75, 0.05, linear));
+	</action>
+	<!-- 陀螺仪 -->
+	<action name="switch_gyro">
+		switch(plugin[skin_gyro].enabled);
+	</action>
+	
+	<action name="music_stop">
+		pausesound(bg6);
+	</action>
+	<action name="music_play">
+		resumesound(bg6);
+	</action>
+	
+	<action name="hide_win">
+		tween(layer[dm_mask].alpha,0);
+		tween(layer[thumb_bg].y,-80);
+		hide_map();
+		js("roomHideBtn()");
+	</action>
+	
+	<action name="show_win">
+		set(layer[thumb_bg].alpha,1);
+		tween(layer[dm_mask].alpha,1);
+		tween(layer[thumb_bg].y,0);
+	</action>
+	<action name="add_class" type="Javascript">
+		<![CDATA[
+			caller.sprite.id = "dm_mask";
+		]]>
+		
+	</action>
+	<action name="thumb_class" type="Javascript">
+		<![CDATA[
+			caller.sprite.className = "overf";
+		]]>
+		
+	</action>
+	<!-- 热点标题显示 set_titlevalue(父热点名,子热点名); 父热点必须设置tooltip属性 -->
+	<action name="set_titlevalue">
+		set(layer[%2].html,get(hotspot[%1].tooltip));
+	</action>
+	<!-- 动画action -->
+	<action name="do_crop_animation">
+        registerattribute(frame, 0);
+        set(frame, 0);
+        set(crop, '0|0|%1|%2');
+
+        setinterval(calc('crop_anim_' + name), calc(1.0 / %3),
+            if(loaded,
+                inc(frame);
+                if(frame GE %4, set(frame,0););
+                mul(ypos, frame, %2);
+                calc(crop, '0|' + ypos + '|%1|%2');
+              ,
+                clearinterval(calc('crop_anim_' + name));
+              );
+          );
+    </action>
+	<!--显示热点信息-->
+	<action name="show_hot_goods">
+		
+		for(set(i,0), i LT hotspot.count, inc(i),
+			
+			if(hotspot[get(i)].typeName == "hotgoods",
+				set(hotspot[get(i)].alpha, 1);
+				
+			);
+		);
+	</action>
+	<!--隐藏热点信息-->
+	<action name="hide_hot_goods">
+		
+		for(set(i,0), i LT hotspot.count, inc(i),
+			
+			if(hotspot[get(i)].typeName == "hotgoods",
+				set(hotspot[get(i)].alpha, 0);
+				
+			);
+		);
+	</action>
+	<action name="isFirstLoad">
+		if(layer[dm_mask].isfirst == 'false',
+			set(layer[dm_mask].isfirst,"true");
+			js(goodsList(get(scene[get(startscene)].scene_no),get(scene[get(startscene)].title)));
+		)
+	</action>
+	<action name="thumb_selected">
+		if(_thumb_img,
+			set(layer[get(_thumb_img)].bgborder,'0 0xffffff 1');
+			set(layer[get(_thumb_img)].enabled,true);
+		);
+
+		txtadd(_thumb_img,'thumbs_list_',get(scene[get(xml.scene)].index));
+		if(layer[get(_thumb_img)],
+			set(layer[get(_thumb_img)].bgborder,'3 0xff6600 1');
+			set(layer[get(_thumb_img)].enabled,false);
+			layer[thumb_scrollarea].scrolltocenter(calc(layer[get(_thumb_img)].x + 10),0);
+			hide_win();
+			js(goodsList(get(scene[get(xml.scene)].scene_no),get(scene[get(xml.scene)].title)));
+		);
+
+	</action>
+
+	<action name="thumbsListLoad">
+		js(test(get(layer[thumbs_w].width)));
+		copy(thumbwidth, get(layer[thumbs_w].width));
+		for(set(i,0),i LT scene.count,inc(i),
+			
+			txtadd(thumbsListName,"thumbs_list_",get(i));
+			addLayer(get(thumbsListName));
+			set(layer[get(thumbsListName)].type,container);
+			set(layer[get(thumbsListName)].layername, get(thumbsListName) );
+			set(layer[get(thumbsListName)].width,234);
+			set(layer[get(thumbsListName)].height,50%);
+			set(layer[get(thumbsListName)].parent,thumbs_list);
+			set(layer[get(thumbsListName)].keep, true);
+			set(layer[get(thumbsListName)].align, lefttop);
+			set(layer[get(thumbsListName)].maskchildren,true);
+			set(layer[get(thumbsListName)].edge,lefttop);
+			set(layer[get(thumbsListName)].bgcapture,true);
+			set(layer[get(thumbsListName)].bgalpha,0.6);
+			set(layer[get(thumbsListName)].bgroundedge,0);
+			set(layer[get(thumbsListName)].bgcolor,0xffffff);
+			set(layer[get(thumbsListName)].x, calc(274 * i + 10));
+			set(layer[get(thumbsListName)].linkedscene, get(scene[get(i)].name) );
+			set(layer[get(thumbsListName)].onclick, loadscene(get(linkedscene),null,MERGE,OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)); );
+			
+			set(layer[get(thumbsListName)].onloaded,thumb_class);
+			set(layer[get(thumbsListName)].scene_no,get(scene[get(i)].scene_no));
+
+			txtadd(thumbsListImg,"thumbs_img_",get(i));
+			addLayer(get(thumbsListImg));
+			set(layer[get(thumbsListImg)].url,get(scene[get(i)].thumburl));
+			set(layer[get(thumbsListImg)].width,100%);
+			set(layer[get(thumbsListImg)].height,100%);
+			set(layer[get(thumbsListImg)].enabled,false);
+			set(layer[get(thumbsListImg)].keep,true);
+			set(layer[get(thumbsListImg)].parent,get(thumbsListName));
+			set(layer[get(thumbsListImg)].keep,true);
+
+			txtadd(thumbsListText,"thumbs_txt_",get(i));
+			addLayer(get(thumbsListText));
+			set(layer[get(thumbsListText)].url,calc('/static/vr/plugins/textfield.swf'));
+			set(layer[get(thumbsListText)].parent,get(thumbsListName));
+			set(layer[get(thumbsListText)].html,get(scene[get(i)].title));
+			set(layer[get(thumbsListText)].align,bottom);
+			<!--set(layer[get(thumbsListText)].width,100%);-->
+			set(layer[get(thumbsListText)].y,-30);
+			set(layer[get(thumbsListText)].background,false);
+			set(layer[get(thumbsListText)].backgroundcolor,0x000000);
+			set(layer[get(thumbsListText)].backgroundalpha,0.6);
+			set(layer[get(thumbsListText)].padding, 4 10);
+			set(layer[get(thumbsListText)].enabled, false);
+			set(layer[get(thumbsListText)].css,'text-align:center; font-family:微软雅黑; font-size:14px; color:#ff6600;');
+			set(layer[get(thumbsListText)].keep,true);
+
+			
+		);
+
+		set(layer[thumbs_list].width, calc(274 * i  + 10));
+		layer[thumbs_list].setcenter(0,100);
+	</action>
+
+	<!-- loading percent actions -->
+	<action name="loadinganimation_startloading">
+		set(loadinganimation_isloading, true);
+		set(hotspot[loadinganimation].visible, true);
+		<!-- loadinganimation_animate(); -->
+	</action>
+
+	<action name="loadinganimation_stoploading">
+		set(loadinganimation_isloading, false);
+		set(hotspot[loadinganimation].visible, false);
+	</action>
+
+	<action name="loadinganimation_animate">
+		mul(xcrop, hotspot[loadinganimation].frame, 64);
+		txtadd(hotspot[loadinganimation].crop, get(xcrop), '|0|64|64');
+
+		if(loadinganimation_isloading,
+			inc(hotspot[loadinganimation].frame);
+			if(hotspot[loadinganimation].frame GE hotspot[loadinganimation].frames, set(hotspot[loadinganimation].frame,0));
+			delayedcall(0.05, loadinganimation_animate() );
+		  );
+	</action>
+	
+	<action name="skin_setup_littleplanetintro">
+		copy(lp_scene, xml.scene);
+		copy(lp_hlookat, view.hlookat);
+		copy(lp_vlookat, view.vlookat);
+		copy(lp_fov, view.fov);
+		copy(lp_fovmax, view.fovmax);
+		copy(lp_limitview, view.limitview);
+		set(view.fovmax, 170);
+		set(view.limitview, lookto);
+		set(view.vlookatmin, 90);
+		set(view.vlookatmax, 90);
+		lookat(calc(lp_hlookat - 180), 90, 150, 1, 0, 0);
+		set(events[lp_events].onloadcomplete,
+			delayedcall(0.5,
+				if(lp_scene === xml.scene,
+					set(control.usercontrol, off);
+					copy(view.limitview, lp_limitview);
+					set(view.vlookatmin, null);
+					set(view.vlookatmax, null);
+					tween(view.hlookat|view.vlookat|view.fov|view.distortion, calc('' + lp_hlookat + '|' + lp_vlookat + '|' + lp_fov + '|' + 0.0),
+						3.0, easeOutQuad,
+						set(control.usercontrol, all);
+						tween(view.fovmax, get(lp_fovmax));
+						);
+				  );
+			  );
+		  );
+	</action>
+	
+</krpano>

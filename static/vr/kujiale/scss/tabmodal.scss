@@ -1,0 +1,59 @@
+.tab-modal{
+    .k-modal-wp {
+        top: 30%;
+        box-sizing: border-box;
+        padding: 0 30px;
+        width: 640px;
+        height: 300px;
+        .hd {
+            border: 1px solid #ebebeb;
+            border-width: 0 0 1px;
+            padding: 0;
+            .modal-close {
+                position: absolute;
+                right: 17px;
+                top: 5px;
+                font-size: 28px;
+                color: #999;
+                font-family: \\5B8B\4F53;
+            }
+            .modal-close:hover {
+                color: #666;
+            }
+        }
+        .bd {
+            position: relative;
+            overflow: hidden;
+            visibility: hidden;
+        }
+    }
+    .tab {
+        float: left;
+        a {
+            display: inline-block;
+            padding: 16px 10px 12px;
+            border-bottom: 3px solid transparent;
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+    }
+    .tab.active a, .tab:hover a {
+        border-bottom-color: #f60;
+        color: #f60;
+    }
+     .tab-panel {
+        float: left;
+        width: 100%;
+        height: 201px;
+        margin: 20px 0;
+        position: relative;
+        overflow: auto;
+    }
+    .desc {
+        line-height: 2em;
+        font-size: 14px;
+        color: #333;
+    }
+}

@@ -11,6 +11,9 @@ import Testb from '@/components/test/Test-b';
 import VrList from '@/components/vrtemplate/index';
 import Vjia from '@/components/vrtemplate/vrvjia';
 import Kujiale from '@/components/vrtemplate/kujiale';
+import kujialemobile from '@/components/vrtemplate/kujialemobile';
+import vjiamobile from '@/components/vrtemplate/vjiamobile';
+
 
 Vue.use(Router);
 Vue.prototype.axios = axios;
@@ -69,6 +72,16 @@ export default new Router({
         path:'/vrlist/kujiale',
           name:'kujiale',
           component:Kujiale
+      },
+      {
+        path:"/vrlist/kujialemobile",
+        name:"kujialemobile",
+        component:kujialemobile
+      },
+      {
+        path:"/vrlist/vjiamobile",
+        name:"vjiamobile",
+        component:vjiamobile
       }
       ]
     }

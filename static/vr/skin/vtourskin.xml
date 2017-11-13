@@ -1,4 +1,4 @@
-<krpano>
+﻿<krpano>
 
 	<!-- krpano 1.19.pr5 - Virtual Tour Skin -->
 
@@ -111,7 +111,7 @@
 	       shadow="0.01" shadowrange="10.0" shadowangle="90.0" shadowcolor="0x30261B" shadowalpha="0.50"
 	       css="calc:skin_settings.design_text_css + ' color:#FFFFFF;font-size:' + 20*webvr_setup_scale*webvr_button_scale + 'px;'"
 	       />
-	
+
 	<!-- show a 'rotate the device' info when the mobile device is in portrait orientation in VR mode -->
 	<layer name="webvr_rotate_to_landscape_request" keep="true" vr="true" devices="mobile"
 	       url="rotate_device.png" scale="0.5"
@@ -168,31 +168,7 @@
 			set(lastaspect, 0);
 		  );
 	</action>
-	<action name="add_all_the_time_tooltip">
-	    txtadd(tooltipname, 'tooltip_', get(name));
-	    addplugin(get(tooltipname));
-	    txtadd(plugin[get(tooltipname)].parent, 'hotspot[', get(name), ']');
-	    set(plugin[get(tooltipname)].url,'%SWFPATH%/plugins/textfield.swf');
-	    set(plugin[get(tooltipname)].align,top);
-	    set(plugin[get(tooltipname)].edge,bottom);
-	    set(plugin[get(tooltipname)].x,0);
-	    set(plugin[get(tooltipname)].y,0);
-	    set(plugin[get(tooltipname)].width,70);
-	    set(plugin[get(tooltipname)].autoheight,true);
-	    set(plugin[get(tooltipname)].background,true);
-	    set(plugin[get(tooltipname)].backgroundcolor,0x000000);
-	    set(plugin[get(tooltipname)].roundedge,5);
-	    set(plugin[get(tooltipname)].backgroundalpha,0.5);
-	    set(plugin[get(tooltipname)].border,true);
-	    set(plugin[get(tooltipname)].glow,4);
-	    set(plugin[get(tooltipname)].glowcolor,0xFFFFFF);
-	    set(plugin[get(tooltipname)].css,'text-align:center; color:#FFFFFF; font-family:Arial; font-weight:bold; font-size:16px;');
-	    set(plugin[get(tooltipname)].textshadow,1);
-	    set(plugin[get(tooltipname)].textshadowrange,6.0);
-	    set(plugin[get(tooltipname)].textshadowangle,90);
-	    copy(plugin[get(tooltipname)].html,scene[get(linkedscene)].title);
-	    set(plugin[get(tooltipname)].enabled,false);	
-	</action>
+
 	<!-- VR scene switching hotspots -->
 	<style name="webvr_menu_style" depth="800" scale="0.5" distorted="true" ath="0" atv="45" alpha="0.5" />
 	<hotspot name="webvr_prev_scene" keep="true" style="skin_base|webvr_menu_style" crop="0|64|64|64"  ox="-64" onover="tween(scale,0.6);" onout="tween(scale,0.5);" vr_timeout="750" onclick="skin_nextscene_loop(-1);" visible="false" devices="html5.and.webgl" />
@@ -243,29 +219,17 @@
 	       />
 
 	<!-- skin_thumbtext_style - style/textfield for the (optional, skin_settings.thumbs_text) thumbnails texts -->
-	<style name="skin_thumbtext_style" url="%SWFPATH%/plugins/textfield.swf" align="bottom" width="100%" autoheight="true" y="5" enabled="false" background="false" border="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-size:10px;'" textshadow="get:skin_settings.design_text_shadow" />
+	<style name="skin_thumbtext_style" url="%SWFPATH%/plugins/textfield.swf" align="bottom" width="100%" autoheight="true" y="5" enabled="false" background="false" border="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-size:16px;color:red;'" textshadow="get:skin_settings.design_text_shadow" />
 
 	<!-- skin_hotspotstyle - style for the hotspots -->
-	<style name="skin_hotspotstyle" url="vtourskin_hotspot.png" scale="0.5" edge="top" distorted="false"
+	<style name="skin_hotspotstyle" url="vtourskin_hotspot.png" scale="0.5" edge="top" distorted="true"
 	       tooltip=""
 	       onclick="if(linkedscene, set(enabled,false); skin_hidetooltips(); tween(depth|alpha|oy|rx, 4000|0.0|-50|-60, 0.5, default, loadscene(get(linkedscene),null,get(skin_settings.loadscene_flags),get(skin_settings.loadscene_blend)); skin_updatescroll(); ); );"
 	       onover="tween(scale,0.55);"
 	       onout="tween(scale,0.5);"
 	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
 	       />
-	<style name="skin_tooltips_header" url="vtourskin_hotspot.png" scale="0.5" edge="top" distorted="false" width="30" height="30"
-	       tooltip=""
-	       onclick="if(linkedscene, set(enabled,false); skin_hidetooltips(); tween(depth|alpha|oy|rx, 4000|0.0|-50|-60, 0.5, default, loadscene(get(linkedscene),null,get(skin_settings.loadscene_flags),get(skin_settings.loadscene_blend)); skin_updatescroll(); ); );"
-	       onover="tween(scale,0.55);"
-	       onout="tween(scale,0.5);"
-	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
-	       />
-	<!-- 带标题 箭头指向 -->
-	<style name="skin_hotspotstyle_title" url="../panos/icon/default.png" scale="0.5" edge="top" oy="0" distorted="false"
-	       tooltip=""
-	       onclick="if(linkedscene, skin_hidetooltips(); tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,get(skin_settings.loadscene_flags),get(skin_settings.loadscene_blend)); skin_updatescroll(); );"
-	       onloaded="add_all_the_time_tooltip();do_crop_animation(120,100, 50);"
-	       />
+
 	<!-- skin_tooltip - style for the thumb, hotspot and mapspot tooltips -->
 	<style name="skin_tooltips"
 	       onover.mouse="copy(layer[skin_tooltip].html, tooltip);
@@ -275,9 +239,7 @@
 	       onout.mouse="tween(layer[skin_tooltip].alpha, 0.0, 0.1, default, set(layer[skin_tooltip].visible,false), copy(layer[skin_tooltip].x,mouse.stagex); copy(layer[skin_tooltip].y,mouse.stagey); );"
 	       />
 
-	<style name="lookup_textfiled" background="true" backgroundalpha="0.5"  backgroundcolor="0x000000"
-	css="calc:skin_settings.design_text_css + ' text-align:center; font-size:16px; color:#ffffff;'"
-	 />
+
 	<!-- the tooltip textfield -->
 	<layer name="skin_tooltip" keep="true"
 	       url="%SWFPATH%/plugins/textfield.swf"
@@ -295,7 +257,6 @@
 
 	<!-- skin layout -->
 	<layer name="skin_layer" keep="true" type="container" align="top" width="get:skin_settings.layout_width" maxwidth="get:skin_settings.layout_maxwidth" height="100%" maskchildren="true" visible="false" bgcapture="false" zorder="1">
-		<!-- 场景引导小图导航 -->
 		<layer name="skin_scroll_window" type="container" align="bottom" width="100%" height="100%" x="0" y="calc:skin_settings.controlbar_offset + skin_settings.controlbar_height - skin_settings.controlbar_overlap" maskchildren="true" onloaded="skin_calc_opened_closed();" zorder="1">
 			<layer name="skin_scroll_layer" type="container" align="bottom" width="get:skin_settings.controlbar_width" height="100%" x="0" y="200" y_offset="get:skin_settings.controlbar_overlap" accuracy="1" bgalpha="get:skin_settings.design_bgalpha" bgcolor="get:skin_settings.design_bgcolor" bgborder="get:skin_settings.design_bgborder" bgroundedge="get:skin_settings.design_bgroundedge" bgshadow="get:skin_settings.design_bgshadow">
 				<layer name="skin_title" url="%SWFPATH%/plugins/textfield.swf" align="lefttop" edge="leftbottom" x="4" y="0" zorder="4" enabled="false" background="false" border="false" css="calc:skin_settings.design_text_css + ' text-align:left; font-style:italic; font-size:12px;'" textshadow="get:skin_settings.design_text_shadow" visible="false" onautosized="skin_video_updateseekbarwidth();" />
@@ -327,23 +288,16 @@
 				</layer>
 			</layer>
 		</layer>
-		<!-- end 场景引导小图导航 -->
 
-		<!-- 底部 导航背景 -->
 		<layer name="skin_splitter_bottom" type="container" align="bottom" width="100%" height="calc:skin_settings.controlbar_offset + skin_settings.controlbar_height - skin_settings.controlbar_overlap" y="0" maskchildren="true" onloaded="skin_calc_opened_closed();" zorder="2">
 			<layer name="skin_control_bar_bg" type="container" align="bottom" width="get:skin_settings.controlbar_width" height="calc:skin_settings.controlbar_height + skin_settings.controlbar_overlap" x="0" y="get:skin_settings.controlbar_offset" bgcolor="get:skin_settings.design_bgcolor" bgalpha="get:skin_settings.design_bgalpha" bgborder="get:skin_settings.design_bgborder" bgroundedge="get:skin_settings.design_bgroundedge" bgshadow="get:skin_settings.design_bgshadow" />
 		</layer>
-		<!-- end 导航背景 -->
-		
-		<!-- 导航小图标 -->
+
 		<layer name="skin_control_bar" type="container" align="bottom" width="get:skin_settings.controlbar_width" height="calc:skin_settings.controlbar_height" x="0" y="get:skin_settings.controlbar_offset" onloaded="skin_calc_opened_closed();" zorder="3">
 			<layer name="skin_control_bar_buttons" type="container" align="leftbottom" width="100%" height="get:skin_settings.controlbar_height">
 				<layer name="skin_btn_prev"      style="skin_base|skin_glow" crop="0|64|64|64"   align="left"        x="5"    y="0"  scale="0.5" alpha="0.5"  onclick="if(skin_settings.thumbs_loop, skin_nextscene_loop(-1), skin_nextscene(-1) );" />
-				<!-- 场景缩影图 -->
 				<layer name="skin_btn_thumbs"    style="skin_base|skin_glow" crop="0|128|64|64"  align="left"        x="50"   y="0"  scale="0.5" ondown2="skin_showmap(false); skin_showthumbs();" />
-
 				<layer name="skin_btn_map"       style="skin_base|skin_glow" crop="64|128|64|64" align="left"        x="90"   y="0"  scale="0.5" ondown2="skin_showthumbs(false); skin_showmap();" visible="false" />
-				<!-- 左 右 上 下 前进 后退 六个按钮功能  -->
 				<layer name="skin_btn_navi" type="container" align="center" x="0" width="240" height="32">
 					<layer name="skin_btn_left"  style="skin_base|skin_glow" crop="0|192|64|64"  align="center"      x="-100" y="0"  scale="0.5" ondown2="set(hlookat_moveforce,-1);" onup2="set(hlookat_moveforce,0);" />
 					<layer name="skin_btn_right" style="skin_base|skin_glow" crop="64|192|64|64" align="center"      x="-60"  y="0"  scale="0.5" ondown2="set(hlookat_moveforce,+1);" onup2="set(hlookat_moveforce,0);" />
@@ -352,9 +306,7 @@
 					<layer name="skin_btn_in"    style="skin_base|skin_glow" crop="0|320|64|64"  align="center"      x="+60"  y="0"  scale="0.5" ondown2="set(fov_moveforce,-1);"     onup2="set(fov_moveforce,0);" />
 					<layer name="skin_btn_out"   style="skin_base|skin_glow" crop="64|320|64|64" align="center"      x="+100" y="0"  scale="0.5" ondown2="set(fov_moveforce,+1);"     onup2="set(fov_moveforce,0);" />
 				</layer>
-				<!-- 陀螺仪 -->
 				<layer name="skin_btn_gyro"      style="skin_base|skin_glow" crop="0|384|64|64"  align="center"      x="+140" y="0"  scale="0.5" onclick="switch(plugin[skin_gyro].enabled); if(plugin[skin_gyro].enabled, skin_showmap(false));" visible="false" devices="html5" />
-				
 				<layer name="skin_btn_vr"        style="skin_base|skin_glow" crop="0|0|80|64"    align="center"      x="+146" y="0"  scale="0.5" onclick="webvr.enterVR();" visible="false" />
 				<layer name="skin_btn_fs"        style="skin_base|skin_glow" crop="0|576|64|64"  align="right"       x="90"   y="0"  scale="0.5" onclick="switch(fullscreen);" devices="fullscreensupport" />
 				<layer name="skin_btn_hide"      style="skin_base|skin_glow" crop="0|448|64|64"  align="right"       x="50"   y="0"  scale="0.5" onclick="skin_hideskin()" />
@@ -362,15 +314,13 @@
 					<layer name="skin_btn_show_icon" style="skin_base" crop="64|448|64|64" scale="0.5" align="bottom" y="2" enabled="false" />
 				</layer>
 				<layer name="skin_btn_next"      style="skin_base|skin_glow" crop="64|64|64|64"  align="right"       x="5"    y="0"   scale="0.5" alpha="0.5"  onclick="if(skin_settings.thumbs_loop, skin_nextscene_loop(+1), skin_nextscene(+1) );" />
+				</layer>
 			</layer>
-		</layer>
-		<!-- end 导航小图标 -->
 
 		<layer name="skin_loadingtext" url="%SWFPATH%/plugins/textfield.swf" align="center" x="5" y="-5" html="get:skin_settings.loadingtext" visible="false" autoheight="true" background="false" border="false" enabled="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-style:italic; font-size:22px;'" textshadow="get:skin_settings.design_text_shadow" />
 		<layer name="skin_buttonglow"  style="skin_base" crop="64|384|64|64" align="center" x="0" y="1" scale="1.0" alpha="0.0" visible="false" enabled="false" />
 		<layer name="skin_thumbborder" type="container" x="get:skin_settings.design_thumbborder_padding" y="get:skin_settings.design_thumbborder_padding" width="calc:skin_settings.thumbs_width - 2*skin_settings.design_thumbborder_padding" height="calc:skin_settings.thumbs_height - 2*skin_settings.design_thumbborder_padding" visible="false" enabled="false" align="lefttop" bgborder="get:skin_settings.design_thumbborder_bgborder" bgroundedge="get:skin_settings.design_thumbborder_bgroundedge" />
-
-		</layer>
+	</layer>
 
 	<!-- previous/next scene buttons for the hidden skin mode -->
 	<layer name="skin_btn_prev_fs" keep="true" type="container" align="lefttop"  x="-50" width="40" height="100%" bgcapture="true" alpha="0.25" capture="false" zorder="2" onclick="skin_nextscene_loop(-1);" onhover="tween(alpha,1.0);" onout="tween(alpha,0.25);" ondown.touch="onhover();" onup.touch="onout();">
@@ -379,8 +329,7 @@
 	<layer name="skin_btn_next_fs" keep="true" type="container" align="righttop" x="-50" width="40" height="100%" bgcapture="true" alpha="0.25" capture="false" zorder="2" onclick="skin_nextscene_loop(+1);" onhover="tween(alpha,1.0);" onout="tween(alpha,0.25);" ondown.touch="onhover();" onup.touch="onout();">
 		<layer name="skin_btn_next_fs_icon" style="skin_base" crop="64|64|64|64" align="center" scale="0.5" enabled="false" />
 	</layer>
-	
-	
+
 
 	<!-- gyro plugin -->
 	<plugin name="skin_gyro" keep="true" url="" html5_url="%SWFPATH%/plugins/gyro2.js" devices="html5" enabled="false" onavailable="skin_arrange_buttons();" />
@@ -401,7 +350,6 @@
 
 
 	<!-- skin actions -->
-	
 	<action name="skin_startup">
 
 		<!-- apply skin settings on startup -->
@@ -1168,7 +1116,5 @@
 		tween(view.hlookat, get(new_hlookat), distance(100,0.8));
 		skin_deeplinking_update_url(1.0);
 	</action>
-	
-	 
 
 </krpano>

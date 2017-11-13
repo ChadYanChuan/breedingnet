@@ -5,10 +5,16 @@
 				<router-link :to='{name:"index"}'>去首页</router-link>
 			</button>
 			<button type="button" class="btn btn-primary">
-				<router-link :to='{name:"vjia",params:{src:"/static/vr/vjia.html"}}'>3vjia全景模板</router-link>
+				<router-link :to='{name:"vjia",params:{src:"/static/vr/vjia/index.html"}}'>3vjia全景模板</router-link>
 			</button>
 			<button type="button" class="btn btn-primary">
-				<router-link :to='{name:"kujiale",params:{src:"/static/vr/kujiale.html"}}'>酷家乐全景模板</router-link>
+				<router-link :to='{name:"vjiamobile",params:{src:"/static/vr/vjia/vjiaMobile.html"}}'>3vjia(mobile)模板</router-link>
+			</button>
+			<button type="button" class="btn btn-primary">
+				<router-link :to='{name:"kujiale",params:{src:"/static/vr/kujiale/pc.html"}}'>酷家乐全景模板(pc端)</router-link>
+			</button>
+			<button type="button" class="btn btn-primary">
+				<router-link :to='{name:"kujialemobile",params:{src:"/static/vr/kujiale/msite.html"}}'>酷家乐全景模板(mobile端)</router-link>
 			</button>
 		</div>
 		<router-view></router-view>

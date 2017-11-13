@@ -1,0 +1,127 @@
+.shop-details-scroll{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3001;
+    overflow: hidden;
+    
+    background-color: #FFFFFF;
+    color: #000000;
+    .swiper-container{
+        width: 100%;
+        height: 100%;
+    }
+    .slide-content{
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 100%;
+    }
+    .detail-img{
+        width: 100%;
+        height: 320px;
+        img{width: 100%;height: 100%;}
+    }
+    .right-list{
+        width: 100%;
+        height: 100%;
+        padding: 10px 16px 16px;
+        .title{
+            height: 50px;
+            line-height: 50px;
+            margin-right: 15px;
+            background-size: contain;
+            background-position: left center;
+            background-repeat: no-repeat;
+            padding-left: 70px;
+            margin-bottom: 30px;
+        }
+        td {
+            padding-bottom: 8px;
+            font-size: 14px;
+        }
+        table .name {
+            width: 57px;
+            color: #999;
+            vertical-align: top;
+        }
+         .wrap {
+            float: left;
+            position: relative;
+            height: 100%;
+            width: 90%;
+        }
+        .description .wrap {
+            display: -webkit-box;
+            max-height: 6em;
+            word-break: break-all;
+            word-wrap: break-word;
+            overflow: auto;
+        }
+    }
+    .foot{border-bottom: 1px solid #ebebeb;border-top: 1px solid #ebebeb;line-height: 40px;background: #fff;}
+    .price {
+        float: left;
+        width: 160px;
+        height: 40px;
+        padding-left: 16px;
+        font-size: 12px;
+        background: #fff;
+        .num {
+            font-size: 16px;
+        }
+    }
+     em {
+        color: #f60;
+    }
+    .btn {
+        display: inline-block;
+        border: 0;
+        border-radius: 3px;
+        padding: 6px 12px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .btn-main {
+        background-color: #f60;
+        color: #fff;
+    }
+    .btn-buy {
+        display: block;
+        box-sizing: border-box;
+        padding: 0;
+        line-height: 40px;
+        border-radius: 0;
+        font-size: 16px;
+    }
+    .close-btn {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(34,34,34,.9);
+        text-align: center;
+        line-height: 20px;
+        right: 16px;
+        top: 12px;
+        font-size: 20px;
+        color: #fff;
+        font-family: \\5B8B\4F53;
+        z-index: 2;
+    }
+    .swiper-slide.loading:after{
+        content: "努力加载中...";
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        margin-left: -50px;
+        margin-top: -15px;
+        color: #f60;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+}

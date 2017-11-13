@@ -1,0 +1,41 @@
+{
+    "msg": "成功",
+    "data": {
+        "record": {
+            "trim_length": 56,
+            "spu_id": "",
+            "sku_id": "",
+            "height": 108.331123,
+            "create_time": 1500999498,
+            "system_type": 0,
+            "top_url": "http://zhuangxiu-img-test.img-cn-shanghai.aliyuncs.com/deco/item/d07ef734711111e7857000163e0e72dc/top.png",
+            "id": 525,
+            "unit": 1,
+            "user_id": 6,
+            "no": "d07ef734711111e7857000163e0e72dc",
+            "salable": 0,
+            "length": 56.1692581,
+            "inner_type": 1,
+            "render_status": 3,
+            "width": 297.364929,
+            "state": 0,
+            "trim_width": 297,
+            "price": 0,
+            "scalable": 1,
+            "is_public": 1,
+            "sale_count": 0,
+            "sub_type": 101,
+            "name": "下橱柜",
+            "product_link": "",
+            "preview_url": "http://zhuangxiu-img-test.img-cn-shanghai.aliyuncs.com/deco/1707/25/0c8acd02711211e7b37500163e0e72dc.jpg",
+            "asset_no": "d07ef734711111e7857000163e0e72dc",
+            "trim_height": 108,
+            "flat_height": 108.331123,
+            "modify_time": 1501001499,
+            "author_id": null,
+            "photo_scale": 2
+        }
+    },
+    "code": "10000",
+    "encrypt": 0
+}

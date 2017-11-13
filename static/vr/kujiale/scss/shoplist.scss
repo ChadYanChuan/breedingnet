@@ -1,0 +1,79 @@
+//  商品标签
+    .cm-list-wp {
+        position: absolute;
+        box-sizing: border-box;
+        width: 268px;
+        right: -268px;
+        top: 0;
+        bottom: 130px;
+        z-index: 3000;
+        transition: all .3s;
+        .cm-list-modal {
+            height: 100%;
+            box-sizing: border-box;
+            padding: 20px 0;
+            background: rgba(0,0,0,.7);
+        }
+        .cm-list-inner {
+            height: 100%;
+            overflow: auto;
+        }
+        .cm-list-inner::-webkit-scrollbar {
+            width: 8px;
+            border-radius: 100px;
+            background: hsla(0,0%,100%,.1);
+        }
+        .cm-list-inner::-webkit-scrollbar-thumb {
+            width: 8px;
+            border-radius: 100px;
+            background: hsla(0,0%,100%,.4);
+        }
+         .cm-list {
+            margin-bottom: 4px;
+            width: 260px;
+            overflow: hidden;
+            color: #fff;
+        }
+        .cate {
+            margin: 0 0 20px 20px;
+            border-left: 3px solid #fff;
+            padding-left: 7px;
+            font-size: 16px;
+            line-height: 16px;
+        }
+        .pic {
+            display: block;
+            width: 100px;
+            height: 100px;
+        }
+        .logo {
+            float: left;
+            margin: 6px 4px 0 0;
+            width: 30px;
+            height: 20px;
+            background-size: contain;
+            background-position: 50%;
+            background-repeat: no-repeat;
+        }
+        .brand {
+            padding-top: 6px;
+            font-size: 12px;
+        }
+        .main {
+            position: relative;
+        }
+        .goods {
+            float: left;
+            width: 100px;
+            margin: 0 0 20px 20px;
+            cursor: pointer;
+        }
+        .goods:nth-child(2n) {
+            clear: left;
+        }
+        
+        
+    }
+    .show {
+        right: 0;
+    }

@@ -1,0 +1,33 @@
+<krpano>
+	<style name="img" keep="true" url="images/ui.png"/>
+	<style name="btn" align="left"  onloaded="set(crop,calc(_x + '|0|70|70'));"/>
+	<layer name="dm_mask" keep="true" type="container" width="100%" height="100%" bgcolor="0x000000" enabled="true" handcursor="true" bgalpha="0" bgcapture="true" zorder="3" alpha="1" autoalpha="true" ondown="hide_win();" if="!device.mobile">
+
+	</layer>
+	
+	<!-- 图标按钮 -->
+	<layer name="mobile_bottom_bg" style="img" crop="0|140|70|149" align="bottom" width="100%" zorder="1" autoalpha="true" alpha="0" enabled="false" />
+	
+	<layer name="bottomright_btn" style="" keep="true" type="container" autoalpha="true" alpha="1" bgalpha="0" align="rightbottom" 
+		y="10" width="800" height="100" zorder="2" onloaded="btn_position();">
+
+		<layer name="bottom_0" style="img|btn" bid="vr_btn" _x="0" onclick="webvr.enterVR();" />
+		
+		<layer name="bottom_2" style="img|btn" bid="thum_btn" _x="70" state="close" onclick="thumbstoggle(bottom_2);" />
+		
+		<layer name="bottom_6" style="img|btn" bid="sound_btn" _x="700" state="play" onclick="bgsnd_action(bottom_6);" visible="true" />
+		
+		<layer name="bottom_7" style="img|btn" bid="share_btn" _x="350" state="close" onclick="sharetoggle(bottom_7,bottom_10);" />
+
+		<layer name="bottom_9" style="img|btn" bid="help_btn" _x="490" onclick="" visible="false" />
+		<layer name="bottom_10" style="img|btn" bid="about_btn" _x="560" state="close" onclick="abouttoggle(bottom_10,bottom_7);" />
+		<layer name="bottom_11" style="img|btn" bid="fullscreen_btn" _x="630" onclick="set(fullscreen,true);" />
+		
+	</layer>
+
+	
+
+	<!-- end 图标按钮 -->
+
+
+</krpano>

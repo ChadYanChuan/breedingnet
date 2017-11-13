@@ -1,0 +1,27 @@
+{
+    "msg":"成功",
+    "data":{
+        "records":[
+            {
+                "preview_url":"http://zhuangxiu-img-test.img-cn-shanghai.aliyuncs.com/deco/1708/16/eb552368823111e7b33b00163e0e72dc.jpg",
+                "model_name":"15cc36c8e0e92eacc5c1bc39d726e454",
+                "name":"吧台",
+                "no":"07f3a8fa822811e7920700163e0e72dc"
+            },
+            {
+                "preview_url":"http://zhuangxiu-img-test.img-cn-shanghai.aliyuncs.com/deco/1708/03/fe508794782e11e7996c00163e0e72dc.jpg",
+                "model_name":"d149e9cbafed4b47cfbebc38efa0f5d0",
+                "name":"相框",
+                "no":"e0ddf49e782e11e7850100163e0e72dc"
+            },
+            {
+                "preview_url":"http://zhuangxiu-img-test.img-cn-shanghai.aliyuncs.com/deco/1708/03/97ecc6b277fb11e792eb00163e0e72dc.jpg",
+                "model_name":"e9961b4681f28fe24266bc390ea66e0b",
+                "name":"相框",
+                "no":"2b40258677fb11e792eb00163e0e72dc"
+            }
+        ]
+    },
+    "code":"10000",
+    "encrypt":0
+}

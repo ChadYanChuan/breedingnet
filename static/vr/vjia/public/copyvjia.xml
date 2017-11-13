@@ -1,0 +1,12 @@
+<krpano>
+	
+	
+	<include url="copyvjia/loadinganimation.xml" />
+	<include url="copyvjia/action.xml" if="!device.mobile"/>
+	<include url="copyvjia/button.xml" if="!device.mobile"/>
+	<include url="copyvjia/button_mobile.xml" devices="mobile" />
+	<include url="copyvjia/thumb_win.xml" if="!device.mobile" />
+	<include url="copyvjia/thumb_mobile.xml" devices="mobile" />
+	<include url="copyvjia/share.xml" />
+	
+</krpano>

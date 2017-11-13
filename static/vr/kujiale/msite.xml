@@ -1,0 +1,74 @@
+﻿<krpano version="1.19" title="Virtual Tour">
+	
+	<include url="xml/msite/base.xml" />
+	
+	<!-- startup action - load the first scene -->
+	<action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+		loadscene(get(startscene), null, MERGE);
+		playsound(bg6, 'panos/xia.mp3', 0);
+		skin_setup_littleplanetintro();
+		if(startactions !== null, startactions() );
+		
+	</action>
+	
+	<!-- 当前小地图未选中小地图锚点  -->
+   <!-- <style name="mapspot" keep="true" url="%SWFPATH%/skin/3d-location.png" parent="map" align="center" edge="center" scale.normal="2" scale.mobile="2" visible="true"/> -->
+
+   <!-- 当前选中地图锚点 -->
+   <!-- <layer name="activespot" url="%SWFPATH%/skin/3d-location-press.png" keep="true" align="center" zorder="2" scale.normal="3" scale.mobile="3"  visible="false"/> -->
+   
+    <!-- 自定义样式 -->
+    <layer name="skin_map_layer" type="container" align="bottom" y="-50%" width="100%" height="50%" bgcolor="0x000000" bgalpha="0.6" bgcapture="true"
+           visible="true" alpha="1" autoalpha="true" keep="true" parent="dm_mask">
+
+        <layer name="map"  map_visible="true" url="http://zhuangxiu-img-test.img-cn-shanghai.aliyuncs.com/deco/1709/26/8bbfc482a26911e788de080027600201.jpg" x="5%" y="5%" handcursor="false"
+               keep="false" capture="false" align="righttop" width="90%" height="90%" scalechildren="true">
+            <!-- 户型导航 坐标列表 -->
+            
+                
+                    <layer name="_92d55646a26a11e78f40080027600201" align="lefttop" style="mapspot" x="192.857142857"
+                           y="329.524287984" scale="3" zorder="1"
+                           onclick="mapspot_loadscene('_92d55646a26a11e78f40080027600201'); "/>
+                
+            
+                
+                    <layer name="_9b4acad6a26a11e7aae4080027600201" align="lefttop" style="mapspot" x="471.428571429"
+                           y="379.524287984" scale="3" zorder="1"
+                           onclick="mapspot_loadscene('_9b4acad6a26a11e7aae4080027600201'); "/>
+                
+            
+                
+                    <layer name="_a0633a58a26a11e7b4ae080027600201" align="lefttop" style="mapspot" x="178.571428571"
+                           y="508.095716556" scale="3" zorder="1"
+                           onclick="mapspot_loadscene('_a0633a58a26a11e7b4ae080027600201'); "/>
+                
+            
+                
+                    <layer name="_b3be0056a26a11e78aff080027600201" align="lefttop" style="mapspot" x="671.428571429"
+                           y="383.095716556" scale="3" zorder="1"
+                           onclick="mapspot_loadscene('_b3be0056a26a11e78aff080027600201'); "/>
+                
+            
+                
+                    <layer name="_f591807aa28811e7b071080027600201" align="lefttop" style="mapspot" x="474.619123283"
+                           y="375.137863352" scale="3" zorder="1"
+                           onclick="mapspot_loadscene('_f591807aa28811e7b071080027600201'); "/>
+                
+            
+                
+                    <layer name="_1e48fa04ad9511e794cd080027600201" align="lefttop" style="mapspot" x="485.714285714"
+                           y="400.952859413" scale="3" zorder="1"
+                           onclick="mapspot_loadscene('_1e48fa04ad9511e794cd080027600201'); "/>
+                
+            
+
+            <!-- 户型导航相关 end -->
+        </layer>
+        
+
+    </layer>
+	
+	<include url="../scene.xml" />
+
+</krpano>

@@ -1,0 +1,110 @@
+<krpano>
+	<layer name="lod_url" url="images/lod.gif" />
+	<layer name="dm_mask" keep="true" type="container" width="100%" height="100%" bgcolor="0x000000" enabled="true" handcursor="true" bgalpha="0" bgcapture="true" zorder="3" alpha="1" autoalpha="true" ondown="hide_win_mobile();" device="mobile">
+		
+	</layer>
+
+	<layer name="thumb_bg" keep="true" type="container" visible="true" width="100%"  height="174" y="-174"  align="bottom"  
+		bgalpha="0.6" bgcapture="true" parent="dm_mask">
+
+		             
+		<layer name="thumb_title"
+			url="/static/vr/plugins/textfield.swf" width="100%" height="41"
+			keep="true" html="空间跳转"  align="top" backgroundcolor="0x000000" backgroundalpha="0.6" vcenter="true"
+			css="text-align:center; font-family:微软雅黑; font-size:16px; color:#ffffff;">
+			<layer name="thumb_close" scale="0.6"  style="img_mobile|btnh" crop="219|221|48|48" align="right" x="10" onclick="hide_win_mobile();"/>
+
+		</layer>
+
+
+
+		<layer name="thumb_scrollarea" keep="true"
+			       alturl="/static/vr/plugins/scrollarea.js"
+			       align="top" height="78" y="60"
+			       direction="h"
+			       draggable="true"
+			       onhover_autoscrolling="false"
+			       overscroll="1.0"
+			       friction="0.95"
+			       acceleration="0.08"
+			       returnacceleration="0.15"
+			       momentum="0.06"
+			       onscroll=""
+			        onloaded="delayedcall(1, thumb_for(););"
+			       >
+		</layer>
+
+	</layer>
+
+	<layer name="thumb_border" type="container" keep="true" bgroundedge="15" align="center" bgshadow="0 0 1 2 0xffffff 1" width="78" height="78" visible="false" enabled="true" bgcapture="true"/>
+
+	                      
+	<action name="thumb_for">
+		for(set(i,0), i LT scene.count, inc(i), 
+			                      
+			txtadd(thumb_bg,'thumb_bg_',get(i));
+			addlayer(get(thumb_bg));
+			set(layer[get(thumb_bg)].type,container);
+			set(layer[get(thumb_bg)].width,78);
+			set(layer[get(thumb_bg)].height,78);
+			set(layer[get(thumb_bg)].parent,thumb_scrollarea);
+			set(layer[get(thumb_bg)].edge,lefttop);
+			set(layer[get(thumb_bg)].keep,true);
+			set(layer[get(thumb_bg)].bgcapture,true);
+			set(layer[get(thumb_bg)].bgalpha,0.6);
+			set(layer[get(thumb_bg)].bgroundedge,8);
+			set(layer[get(thumb_bg)].bgcolor,0xffffff);
+			set(layer[get(thumb_bg)].x, calc(102 * i + 40));
+			set(layer[get(thumb_bg)].linkedscene, get(scene[get(i)].name) );
+			set(layer[get(thumb_bg)].onclick, hide_win_mobile();loadscene(get(linkedscene),null,MERGE,OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)); );
+			
+			txtadd(thumb_load,'thumb_load_',get(i));
+			addlayer(get(thumb_load));
+			txtadd(layer[get(thumb_load)].url,get(layer[lod_url].url));
+			set(layer[get(thumb_load)].enabled,false);
+			set(layer[get(thumb_load)].keep,true);
+			set(layer[get(thumb_load)].align,center);
+			set(layer[get(thumb_load)].parent,get(thumb_bg));
+
+			txtadd(thumb_img,'thumb_img_',get(i));
+			addlayer(get(thumb_img));
+			set(layer[get(thumb_img)].url,get(scene[get(i)].thumburl));
+			set(layer[get(thumb_img)].width,78);
+			set(layer[get(thumb_img)].height,78);
+			set(layer[get(thumb_img)].enabled,false);
+			set(layer[get(thumb_img)].keep,true);
+			set(layer[get(thumb_img)].onloaded,'img_bgroundedge(8);');
+			set(layer[get(thumb_img)].parent,get(thumb_bg));
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+			txtadd(thumb_txt,'thumb_txt',get(i));
+			addlayer(get(thumb_txt));
+			set(layer[get(thumb_txt)].url,'/static/vr/plugins/textfield.swf');
+			set(layer[get(thumb_txt)].parent,get(thumb_bg));
+			set(layer[get(thumb_txt)].html,get(scene[get(i)].title));
+			set(layer[get(thumb_txt)].align,bottom);
+			set(layer[get(thumb_txt)].edge,top);
+			set(layer[get(thumb_txt)].y,-20);
+			set(layer[get(thumb_txt)].background,false);
+			set(layer[get(thumb_txt)].oy,-10);
+			set(layer[get(thumb_txt)].css,'font-family:微软雅黑; font-size:16px; color:#ffffff;');
+			set(layer[get(thumb_txt)].keep,true);
+		); 
+		
+		set(layer[thumb_scrollarea].width, calc(102 * i  + 40));
+		layer[thumb_scrollarea].setcenter(0,100);
+	</action>
+
+	                   
+	<events name="thumb_event" keep="true" onnewscene="thumb_selected();" onloaderror=""/>
+	                         
+	<action name="thumb_selected">
+
+		txtadd(_thumb_img,'thumb_img_',get(scene[get(xml.scene)].room));
+		if(layer[get(_thumb_img)],
+			set(layer[thumb_border].parent,get(_thumb_img));
+			set(layer[thumb_border].visible,true);
+		);
+	
+	</action>
+
+</krpano>

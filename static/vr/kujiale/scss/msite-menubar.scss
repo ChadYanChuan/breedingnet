@@ -1,0 +1,117 @@
+.menu-bar{
+    z-index: 1;
+    .btn-list {
+        float: right;
+        margin: 4px 0 12px;
+    }
+    .btn-item {
+        background: rgba(0,0,0,.5);
+    }
+    .user {
+        position: absolute;
+        left: 16px;
+        top: -50px;
+    }
+}
+.menu-bar-fullscreen {
+    opacity: 0;
+     .exit-fullscreen {
+        float: right;
+        line-height: 32px;
+        padding: 0 20px;
+        border-radius: 16px;
+        color: #fff;
+        background: rgba(0,0,0,.5);
+    }
+    .user{float: left;}
+    .exit-fullscreen {
+        margin: 4px 0 12px;
+    }
+}
+.menu-bar,.menu-bar-fullscreen {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 0 16px;
+    width: 100%;
+    line-height: 32px;
+    font-size: 12px;
+    opacity: 1;
+    transition: opacity .3s;
+    .user {
+        max-width: 14em;
+        margin: 8px 20px 8px 0;
+        font-size: 14px;
+        color: #fff;
+    }
+    .avatar {
+        width: 32px;
+        height: 32px;
+        margin-right: 8px;
+        border-radius: 50%;
+        vertical-align: middle;
+    }
+    .btn-item {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 64px;
+        height: 32px;
+        margin-left: 12px;
+        border: 1px solid hsla(0,0%,100%,.5);
+        border-radius: 16px;
+        line-height: 30px;
+        text-align: center;
+    }
+}
+.current-room {
+        float: left;
+        margin: 4px 0 12px;
+        line-height: 30px;
+        border: 1px solid hsla(0,0%,100%,.5);
+        border-radius: 14px;
+        background: rgba(0,0,0,.5);
+        display: inline-block;
+        padding: 0 12px;
+        font-size: 12px;
+        .anchor {
+            display: inline-block;
+            width: 9px;
+            height: 12px;
+            background-position: -95px -5px;
+            vertical-align: -2px;
+        }
+    }
+    .sprite {
+        background-image: url(img/small-icons.png);
+        background-size: 139px 90px;
+    }
+//左上角 图吧标
+.side-menu {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    opacity: 1;
+    transition: opacity .3s;
+    z-index: 1;
+    .btn-item {
+        display: block;
+        width: 32px;
+        height: 32px;
+        margin-top: 8px;
+        border-radius: 50%;
+        background-color: rgba(0,0,0,.5);
+    }
+    .menu-btn-profile-with-setting {
+        background-position: -59px -29px;
+    }
+    .menu-btn-music {
+        background-position: -29px 1px;
+    }
+    .menu-btn-music.active {
+        background-position: -59px 1px;
+    }
+    .menu-btn-vr {
+        background-position: 1px 1px;
+    }
+}

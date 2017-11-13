@@ -1,0 +1,66 @@
+*{margin: 0;padding: 0;font-family: 'Microsoft YaHei',"微软雅黑","Hiragino Sans GB","华文细黑","STHeiti","SimHei","Helvetica Neue";}
+ol, ul {list-style: none; }
+a, a:hover {
+    text-decoration: none;
+}
+body,html{height: 100%;width: 100%;}
+html {
+    font-size:62.5%;
+    overflow: hidden;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+caption, em, i, th {
+    font-style: normal;
+    font-weight: 400;
+}
+.ell {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+@import "vrporject.css";
+.overf{overflow: visible !important;}
+.mobile {
+    position: relative;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+    -webkit-tap-highlight-color: transparent;
+    @import "amount.scss";
+    @import "msite-menubar.scss";
+    @import "shop-list.scss";
+    @import "fang-jie.scss";
+    @import "shop-detailsScroll.scss";
+    .menu-bar-fullscreen{
+        display: none;
+    }
+    .show {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+}
+//全屏
+.fullscreen{
+     .menu-bar,.side-menu{
+        z-index: 0;
+    }
+    .menu-bar-fullscreen {
+        display: block;
+        opacity: 1;
+        z-index: 1;
+    }
+}
+.showing-room{
+    .menu-bar,.side-menu{
+        z-index: 0;
+    }
+    .menu-bar-fullscreen {
+        opacity: 1;
+        z-index: 0;
+    }
+}

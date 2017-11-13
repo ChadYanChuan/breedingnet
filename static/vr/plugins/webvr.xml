@@ -207,13 +207,13 @@
 	       padding="calc:6*webvr_setup_scale*webvr_button_scale + ' ' + 10*webvr_setup_scale*webvr_button_scale"
 	       />
 	
-	<layer name="webvr_enterbutton" keep="true" vr="true"
+	<!-- <layer name="webvr_enterbutton" keep="true" vr="true"
 	       style="webvr_button_style"
 	       html="Enter VR"
 	       align="top" y="24"
 	       autoalpha="true" alpha="0.0"
 	       onclick="webvr.enterVR();"
-	       />
+	       /> -->
 
 	<layer name="webvr_exitbutton" keep="true" vr="true"
 	       style="webvr_button_style"
