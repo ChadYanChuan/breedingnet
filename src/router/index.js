@@ -13,7 +13,7 @@ import Vjia from '@/components/vrtemplate/vrvjia';
 import Kujiale from '@/components/vrtemplate/kujiale';
 import kujialemobile from '@/components/vrtemplate/kujialemobile';
 import vjiamobile from '@/components/vrtemplate/vjiamobile';
-
+import twotree from '@/components/Twotree';
 
 Vue.use(Router);
 Vue.prototype.axios = axios;
@@ -84,6 +84,11 @@ export default new Router({
         component:vjiamobile
       }
       ]
+    },
+    {
+      path:'/twotree',
+      name:'twotree',
+      component:twotree
     }
   ]
 })
