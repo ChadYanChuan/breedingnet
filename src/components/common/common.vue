@@ -52,8 +52,8 @@
 								}
 							}
 						}),
-						createElement("p","子组件值改变了"+self.value),
-						createElement("p","父组件的值为"+self._props.childmsg)
+						createElement("p","我是子组件，我的值改变了，我传给父组件的值为"+self.value),
+						createElement("p","父组件传来的值为"+self._props.childmsg)
 					]
                     
 				);
@@ -65,7 +65,7 @@
 				},{
 					"name":"chuan"
 				}],
-				value:"test",
+				value:"子父组件间传值",
 				blur:false
 			}
 		}

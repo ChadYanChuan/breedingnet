@@ -15,16 +15,24 @@
 				<h6>66666</h6>
 			</pre>
 		</div>
-		
+		<div>-------------------------------------------------------------</div>
+		<div>
+			中央事件栈
+			<firstchild />
+			<secondchild />
+		</div>
 		<h1 v-on:click="testClick(msg)">{{msg}}</h1>
-		<router-link :to='{name:"testa",params:test}'>Testa</router-link>
-        <router-link to="/test/testb">Testb</router-link>
+		<div class="row">
+			<div class="col-sm-4"><router-link :to='{name:"testa",params:test}'>Testa</router-link></div>
+			<div class="col-sm-4"><router-link to="/test/testb">Testb</router-link></div>
+		</div>
         <router-view></router-view>
 	</div>
 </template>
 
 <script>
-	
+	import firstchild from './test/firstchild.vue';
+	import secondchild from './test/secondchild.vue';
 	export default {
 		name:"test",
 		data () {
@@ -81,7 +89,7 @@
 
 			}
 		},
-		components:{}
+		components:{firstchild,secondchild}
 
 	}
 </script>

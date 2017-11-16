@@ -4,13 +4,13 @@
 			"name":"",
 			"url":"#/vrlist",
 			"imgUrl":"vr.jpg",
-			"explain":"3vjia全景模板"
+			"explain":"全景模板"
 		},
 		{
 			"name":"",
 			"url":"#/twotree",
 			"imgUrl":"tree01.gif",
-			"explain":"操作二叉树"
+			"explain":"遍历二叉树"
 		},
 		{
 			"name":"https://medium.freecodecamp.com/an-animated-guide-to-flexbox-d280cf6afc35#.ytr1bg5ta",
