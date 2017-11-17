@@ -48,6 +48,7 @@
 							"on":{
 								input:function(event){
 									self.value = event.target.value;
+									//子向父 
 									self.$emit("listenChild",self.value);
 								}
 							}

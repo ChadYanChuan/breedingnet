@@ -15,6 +15,7 @@
 				<h6>66666</h6>
 			</pre>
 		</div>
+		<counter></counter>
 		<div>-------------------------------------------------------------</div>
 		<div>
 			中央事件栈
@@ -33,6 +34,8 @@
 <script>
 	import firstchild from './test/firstchild.vue';
 	import secondchild from './test/secondchild.vue';
+	import counter from './common/counter.vue';
+
 	export default {
 		name:"test",
 		data () {
@@ -89,7 +92,7 @@
 
 			}
 		},
-		components:{firstchild,secondchild}
+		components:{firstchild,secondchild,counter}
 
 	}
 </script>

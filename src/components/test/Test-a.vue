@@ -37,6 +37,7 @@
 		},
 		methods:{
 			showChildMsg:function(data){
+				//接收 子
 				this.childMsg = data;
 			}
 			
