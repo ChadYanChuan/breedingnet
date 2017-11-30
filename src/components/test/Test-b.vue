@@ -1,8 +1,7 @@
 <template>
 	<div>
-		<h1>this is a child compontent!!!</h1>
+		<h1>this is b child compontent!!!</h1>
 		<h3>{{msg}}</h3>
-		<h5>{{aMsg}}</h5>
 	</div>
 	
 </template>
@@ -11,8 +10,7 @@
 	export default {
 		data () {
 			return {
-				msg:"testb",
-				aMsg:""
+				msg:"testb"
 			}
 		}
 	}

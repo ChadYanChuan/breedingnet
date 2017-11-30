@@ -1,4 +1,4 @@
-export default {
+export let action = {
     promiseAction({ commit }) {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -11,3 +11,26 @@ export default {
         commit("increment");
     }
 }
+
+export let mutations = {
+    increment(state, n) {
+        if (n) {
+            state.count += n;
+        } else {
+            state.count++;
+        }
+    },
+    unincrement(state) {
+        state.count--;
+    },
+    promiseAction(state) {
+        state.count += 2;
+    },
+    mutats(state, n) {
+        console.log(n);
+        state.num++;
+    }
+}
+
+
+// export default action

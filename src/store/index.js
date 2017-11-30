@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import action from './actions';
-import { moduleA } from './module';
+import { action, mutations } from './actions';
+// import { moduleA } from './module';
 
 Vue.use(Vuex);
 
@@ -22,25 +22,7 @@ export default new Vuex.Store({
             return state.todos.find(todo => todo.id === id);
         }
     },
-    mutations: {
-        increment(state, n) {
-            if (n) {
-                state.count += n;
-            } else {
-                state.count++;
-            }
-        },
-        unincrement(state) {
-            state.count--;
-        },
-        promiseAction(state) {
-            state.count += 2;
-        },
-        mutats(state, n) {
-            console.log(n);
-            state.num++;
-        }
-    },
+    mutations: mutations,
     actions: action
         // modules: {
         //     mda: moduleA
