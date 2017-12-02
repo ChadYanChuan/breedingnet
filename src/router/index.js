@@ -14,6 +14,8 @@ import Kujiale from '@/components/vrtemplate/kujiale';
 import kujialemobile from '@/components/vrtemplate/kujialemobile';
 import vjiamobile from '@/components/vrtemplate/vjiamobile';
 import twotree from '@/components/Twotree';
+import weigong from '@/components/weigong';
+import weismall from '@/components/weismall';
 
 Vue.use(VueRouter);
 Vue.prototype.axios = axios;
@@ -40,52 +42,64 @@ export default new VueRouter({
                 }
             ]
         },
-        {
-            path: '/html5',
-            name: 'html5',
-            component: htmlFive
-        },
-        {
-            path: '/vr',
-            name: 'vr',
-            component: VR,
-            children: []
-        },
-        {
-            path: '/vrShow',
-            name: 'vrShow',
-            component: VRSHOW
-        },
-        {
-            path: '/vrlist',
-            name: 'vrlist',
-            component: VrList,
-            children: [{
-                    path: '/vrlist/vjia',
-                    name: 'vjia',
-                    component: Vjia
-                },
-                {
-                    path: '/vrlist/kujiale',
-                    name: 'kujiale',
-                    component: Kujiale
-                },
-                {
-                    path: "/vrlist/kujialemobile",
-                    name: "kujialemobile",
-                    component: kujialemobile
-                },
-                {
-                    path: "/vrlist/vjiamobile",
-                    name: "vjiamobile",
-                    component: vjiamobile
-                }
-            ]
-        },
-        {
-            path: '/twotree',
-            name: 'twotree',
-            component: twotree
-        }
-    ]
+    {
+      path:'/html5',
+      name:'html5',
+      component:htmlFive
+    },
+    {
+      path:'/vr',
+      name:'vr',
+      component:VR,
+      children:[]
+    },
+    {
+      path:'/vrShow',
+      name:'vrShow',
+      component:VRSHOW
+    },
+    {
+      path:'/vrlist',
+      name:'vrlist',
+      component:VrList,
+      children:[
+      {
+        path:'/vrlist/vjia',
+          name:'vjia',
+          component:Vjia
+      },
+      {
+        path:'/vrlist/kujiale',
+          name:'kujiale',
+          component:Kujiale
+      },
+      {
+        path:"/vrlist/kujialemobile",
+        name:"kujialemobile",
+        component:kujialemobile
+      },
+      {
+        path:"/vrlist/vjiamobile",
+        name:"vjiamobile",
+        component:vjiamobile
+      }
+      ]
+    },
+    {
+      path:'/twotree',
+      name:'twotree',
+      component:twotree
+    },
+    {
+      path:'/weigong',
+      name:'weigong',
+      component:weigong
+    },
+    {
+      path:'/weismall',
+      name:'weismall',
+      component:weismall
+    }
+  ]
 })
+
