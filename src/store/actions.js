@@ -32,5 +32,10 @@ export let mutations = {
     }
 }
 
+export let test = {
+    name () {
+        return "name";
+    }
+}
 
 // export default action
