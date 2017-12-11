@@ -32,6 +32,12 @@
 		},
 		{
 			"name":"",
+			"url":"#/resultlist",
+			"imgUrl":"chrome.jpg",
+			"explain":"积累集合"
+		},
+		{
+			"name":"",
 			"url":"http://culturecodes.co/",
 			"imgUrl":"lesslinks_2017_CultureCodes.gif",
 			"explain":"h5原生开发app"

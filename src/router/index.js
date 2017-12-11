@@ -17,6 +17,11 @@ import twotree from '@/components/Twotree';
 import weigong from '@/components/weigong';
 import weismall from '@/components/weismall';
 
+import Borders from '@/components/resultcollections/Borders';
+import Loading from '@/components/resultcollections/Loading';
+import AdTemplate from '@/components/resultcollections/Ad_template';
+import Resultlist from '@/components/Resultlist';
+
 Vue.use(VueRouter);
 Vue.prototype.axios = axios;
 
@@ -99,6 +104,26 @@ export default new VueRouter({
       path:'/weismall',
       name:'weismall',
       component:weismall
+    },
+    {
+      path:'/borders',
+      name:'borders',
+      component:Borders
+    },
+    {
+      path:'/loading',
+      name:'loading',
+      component:Loading
+    },
+    {
+      path:'/ad',
+      name:'ad',
+      component:AdTemplate
+    },
+    {
+      path:'/resultlist',
+      name:'resultlist',
+      component:Resultlist
     }
   ]
 })

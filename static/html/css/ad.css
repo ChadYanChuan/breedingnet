@@ -1,0 +1,186 @@
+@charset "utf-8";
+*{margin: 0;padding: 0;font-family: "Microsoft YaHei";}
+.clearfix:before,.clearfix:after {content: " ";display: table}
+.clearfix:after {clear: both}
+.mgtp14{margin-top: 14px;}
+.mgtp6{margin-top: 6px;}
+.mgtp18{margin-top: 18px;}
+.mgtp27{margin-top: 27px;}
+.mgtp10{margin-top: 10px;}
+.mgtp12{margin-top: 12px;}
+.mgtp15{margin-top: 15px;}
+.mgtp8{margin-top: 8px;}
+.mgtp20{margin-top: 20px;}
+body{background-color: #f3dfec;}
+.container{
+	width: 375px;
+	min-height: 1200px;
+	margin: 0 auto;
+	background-color: #f3dfec;
+}
+.header{
+	width: 100%;
+}
+.headImg{
+	width: 100%;
+	height: 310px;
+	background:url('../img/headImg.png') no-repeat;
+	background-size: 100%;
+
+}
+.headcard {
+	height: 298px;
+	margin: 0 10px;
+	display: inline-flex;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+.headcard .carditem{
+	float: left;
+	min-width: 115px;
+	height: 298px;
+	background-color: #fff;
+	position: relative;
+}
+.headcard .carditem:nth-child(even){
+	margin:0 5px;
+}
+.carditem .carditembody{
+	width: 90px;
+	margin: 0 auto;
+}
+.titleA,.body1 .titlesmall{
+	font-size:12px;
+	color: #999999;
+	text-align: center;
+}
+.titleB{
+	font-size:16px;
+	color: #333333;
+	text-align: center;
+	font-family: "Microsoft YaHei";
+	font-weight: bold;
+}
+.titleC{
+	font-size:16px;
+	color: #d272aa;
+	font-family: "Microsoft YaHei";
+	text-align: center;
+}
+.titleImg{
+	width: 90px;
+	height: 95px;
+	background-color: #bababa;
+}
+.titleImg img{width: 100%;height: 100%;}
+.carditem .cardinfo,.bodyInfotit .smalltitinfo{
+	font-size: 12px;
+	color: #666666;
+}
+
+.body{
+	margin-top: 21px;
+}
+.body .body1{
+	margin: 0 10px;
+	padding-bottom: 25px;
+	border-top: 1px solid #F2F0F1;
+	background-color: #fff;
+	position: relative;
+}
+.body1 .title{
+	text-align: center;
+}
+.body1 .title img{
+	width: 150px;
+	height: 30px;
+}
+.body1 .titlebig{
+	font-size:34px;
+	color: #333333;
+	font-family: "Microsoft YaHei";
+	text-align: center;
+}
+.body1 .bodyInfo{
+	height: 160px;
+	margin-left: 10px;
+    margin-right: 10px;
+}
+.bodyInfo .bodyInfo1{
+	width: 160px;
+	height: 160px;
+	background-color: #bababa;
+	float: left;
+}
+.bodyInfo .bodyInfo2{
+	float: left;
+	margin-left: 14px;
+}
+.bodyInfotit .smalltit{
+	font-size:12px;
+	color: #F05E8D;
+	font-weight: bold;
+}
+.footer{
+	padding-bottom: 25px;
+	margin: 21px 10px 0 10px;
+	background-color: #fff;
+	position: relative;
+}
+.footer .tit{
+	padding: 18px 0;
+	font-size:24px;
+	color: #333333;
+	font-family: "Microsoft YaHei";
+	text-align: center;
+}
+.footercard{
+	margin: 0 10px;
+}
+/*.footercard div:first-child{
+	margin-right: 6px;
+}
+.footercard div:nth-child(2){
+	margin-left: 6px;
+}*/
+.footercard .card{
+	width: 155px;
+	float: left;
+	margin: 6px;
+}
+.footercard .card1{
+	width: 100%;
+	height: 105px;
+	border:1px solid #BBBBBB;
+}
+.footercard .card2{
+	margin-top: 8px;
+	font-size: 14px;
+	color: #666666;
+	text-align: center;
+}
+.triangle-bottomright{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 0;
+    height: 0;
+    border-bottom: 20px solid #f3dfec;
+    border-left: 20px solid transparent;
+}
+
+@media screen and (width:320px){
+	.container {
+	    width: 100%;
+	}
+	.headcard {
+		width: 300px;
+	}
+	
+	.bodyInfo .bodyInfo1 {
+    	width: 120px;
+	}
+	.footercard .card {
+    	width: 128px;
+	}
+}
