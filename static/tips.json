@@ -4,73 +4,73 @@
 			"name":"",
 			"url":"#/vrlist",
 			"imgUrl":"vr.jpg",
-			"explain":"全景模板"
+			"explain":"全景模板(完成)"
 		},
 		{
 			"name":"",
 			"url":"#/twotree",
 			"imgUrl":"tree01.gif",
-			"explain":"遍历二叉树"
-		},
-		{
-			"name":"https://medium.freecodecamp.com/an-animated-guide-to-flexbox-d280cf6afc35#.ytr1bg5ta",
-			"url":"https://snag.gy/",
-			"imgUrl":"lesslinks_2017_flexbox.gif",
-			"explain":"Flexbox动画运行原理"
+			"explain":"遍历二叉树(完成)"
 		},
 		{
 			"name":"",
-			"url":"http://wordpressstash.com/about/",
-			"imgUrl":"lesslinks_2017_wordpress_stash.gif",
-			"explain":"最佳的WordPress精选目录"
+			"url":"#/weismall",
+			"imgUrl":"weismall.jpg",
+			"explain":"微信小程序(开发完善中)"
 		},
 		{
 			"name":"",
-			"url":"http://celebrateimmigrants.us/",
-			"imgUrl":"lesslinks_2017_immigrant_-founders.jpg",
-			"explain":"移民目录"
+			"url":"#/weigong",
+			"imgUrl":"weigong.jpg",
+			"explain":"微信公众号(维护中)"
+		},
+		{
+			"name":"",
+			"url":"#/chrome",
+			"imgUrl":"chrome.jpg",
+			"explain":"chrome插件(开发中)"
 		},
 		{
 			"name":"",
 			"url":"http://culturecodes.co/",
 			"imgUrl":"lesslinks_2017_CultureCodes.gif",
-			"explain":"更多公司的平台文化，核心价值"
+			"explain":"h5原生开发app"
 		},
 		{
 			"name":"",
 			"url":"http://uxflow.co/",
 			"imgUrl":"lesslinks_2017_Flowchart-kit-for-Sketch.gif",
-			"explain":"流程图工具包"
+			"explain":"React Native"
 		},
 		{
 			"name":"",
 			"url":"https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/",
 			"imgUrl":"lesslinks_2017_frontend.gif",
-			"explain":"前端开发手册"
+			"explain":"地图类"
 		},
 		{
 			"name":"",
 			"url":"https://snips.ai/content/intro-to-ai/",
 			"imgUrl":"lesslinks_2017_snips.gif",
-			"explain":"6分钟的人工智能介绍"
+			"explain":"报表类"
 		},
 		{
 			"name":"",
 			"url":"https://www.jobbot.me/",
 			"imgUrl":"lesslinks_2017_jobo.gif",
-			"explain":"帮你寻找下一份工作"
+			"explain":"angularJs"
 		},
 		{
 			"name":"",
 			"url":"https://hashnode.com/",
 			"imgUrl":"lesslinks_jan_mar_2016_11.gif",
-			"explain":"开发者社区"
+			"explain":"node express mysql区"
 		},
 		{
 			"name":"",
 			"url":"http://heyuser.com/",
 			"imgUrl":"lesslinks_jan_mar_2016_09.gif",
-			"explain":"移动版用户的视频库"
+			"explain":"js设计模式"
 		}
 	]
 }

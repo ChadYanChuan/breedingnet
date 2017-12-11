@@ -13,6 +13,7 @@ var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
 
 // var routes = require('../greenroom/routes/index.js');
+// var bc = require('../greenroom/index.js');
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port

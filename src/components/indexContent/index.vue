@@ -3,7 +3,7 @@
 	<div class="site-content">
 		<div class="taxonimy-bundles-category">
 			<header class="archive-header">
-				<h2 class="title">前端集锦</h2>
+				<h2 class="title">个人集锦</h2>
 				<p class="archive-p">Men are wise in proportion, not to their experience, but to their capacity for  experience.</p>
 			</header>
 
