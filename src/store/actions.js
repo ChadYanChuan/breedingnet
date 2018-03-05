@@ -1,5 +1,6 @@
-export let action = {
+let actions = {
     promiseAction({ commit }) {
+        //异步调用 可以引入async/await对action进行组合
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 commit("promiseAction");
@@ -9,33 +10,10 @@ export let action = {
     },
     increment({ commit }) {
         commit("increment");
+    },
+    rideten ({commit}) {
+        commit("rideten");
     }
 }
 
-export let mutations = {
-    increment(state, n) {
-        if (n) {
-            state.count += n;
-        } else {
-            state.count++;
-        }
-    },
-    unincrement(state) {
-        state.count--;
-    },
-    promiseAction(state) {
-        state.count += 2;
-    },
-    mutats(state, n) {
-        console.log(n);
-        state.num++;
-    }
-}
-
-export let test = {
-    name () {
-        return "name";
-    }
-}
-
-// export default action
+export default actions;

@@ -1,18 +1,21 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { action, mutations } from './actions';
-// import { moduleA } from './module';
+import mutations from './Mutations';
+import actions from './Actions';
+
+import { moduleA,moduleB } from './Module';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        count: 0,
+        count: 11,
         num: 0,
         todos: [
             { id: 1, text: "yan", done: true },
             { id: 2, text: "chuan", done: false }
-        ]
+        ],
+        testfn:"where are you from?"
     },
     getters: {
         doneTodos(state) {
@@ -23,8 +26,9 @@ export default new Vuex.Store({
         }
     },
     mutations: mutations,
-    actions: action
-        // modules: {
-        //     mda: moduleA
-        // }
+    actions: actions,
+    modules: {
+        a: moduleA,
+        b:moduleB
+    }
 });

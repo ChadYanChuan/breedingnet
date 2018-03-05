@@ -1,4 +1,4 @@
-let moduleA = {
+export const moduleA = {
     state: {
         mdcount: 1
     },
@@ -18,4 +18,13 @@ let moduleA = {
     }
 }
 
-export default { moduleA }
+export const moduleB = {
+    state:{
+        mdtwo:2
+    },
+    mutations:{
+        increment:function(state){
+            state.mdcount = state.mdcount * 2;
+        }
+    }
+}
