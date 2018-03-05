@@ -18,6 +18,15 @@
 		<div>-------------------------------------------------------------</div>
 		<counter></counter>
 		<div>-------------------------------------------------------------</div>
+		<br/>
+		<div class="row">
+			<teststore></teststore>
+		</div>
+		<br/>
+		<div>-------------------------------------------------------------</div>
+		<br>
+		<testmodule></testmodule>
+		<div>------------------------------------</div>
 		<div>
 			中央事件栈
 			<firstchild />
@@ -36,7 +45,8 @@
 	import firstchild from './test/firstchild.vue';
 	import secondchild from './test/secondchild.vue';
 	import counter from './common/counter.vue';
-
+	import teststore from './common/TestStore.vue';
+	import testmodule from './common/TestModule.vue';
 	export default {
 		name:"test",
 		data () {
@@ -93,7 +103,7 @@
 
 			}
 		},
-		components:{firstchild,secondchild,counter}
+		components:{firstchild,secondchild,counter,teststore,testmodule}
 
 	}
 </script>
