@@ -15,7 +15,8 @@ export default new Vuex.Store({
             { id: 1, text: "yan", done: true },
             { id: 2, text: "chuan", done: false }
         ],
-        testfn:"where are you from?"
+        testfn:"where are you from?",
+        testfan:{}
     },
     getters: {
         doneTodos(state) {

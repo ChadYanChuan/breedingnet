@@ -6,7 +6,7 @@
 			<div class="col-sm-6">modelB</div>
 		</div>
 		<div class="col-xs-3">
-		  <a href="#" class="btn btn-block btn-lg btn-default">Default</a>
+		  <a href="#/" class="btn btn-block btn-lg btn-default">Default</a>
 		</div>
 		<div class="col-sm-9">
 			<pre>
@@ -26,6 +26,8 @@
 		<div>-------------------------------------------------------------</div>
 		<br>
 		<testmodule></testmodule>
+		<div>------------------------------------</div>
+		<teataction></teataction>
 		<div>------------------------------------</div>
 		<div>
 			中央事件栈
@@ -47,6 +49,7 @@
 	import counter from './common/counter.vue';
 	import teststore from './common/TestStore.vue';
 	import testmodule from './common/TestModule.vue';
+	import teataction from './common/TestAction.vue';
 	export default {
 		name:"test",
 		data () {
@@ -103,7 +106,7 @@
 
 			}
 		},
-		components:{firstchild,secondchild,counter,teststore,testmodule}
+		components:{firstchild,secondchild,counter,teststore,testmodule,teataction}
 
 	}
 </script>

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import axios from 'axios';
+
 import Hello from '@/components/Hello';
 import htmlFive from '@/components/htmlFive';
 import VR from '@/components/vr/index';
@@ -23,7 +23,6 @@ import AdTemplate from '@/components/resultcollections/Ad_template';
 import Resultlist from '@/components/Resultlist';
 
 Vue.use(VueRouter);
-Vue.prototype.axios = axios;
 
 export default new VueRouter({
     routes: [{

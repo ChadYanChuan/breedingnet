@@ -20,6 +20,10 @@ let mutations = {
     },
     clearride(state) {
         state.num = 0;
+    },
+    getUser(state,status) {
+        console.log(status);
+        state.testfan = status;
     }
 
 }

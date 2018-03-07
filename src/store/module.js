@@ -3,9 +3,8 @@ export const moduleA = {
         mdcount: 1
     },
     mutations: {
-        increment: function(state) {
-            console.log(11111);
-            state.mdcount++;
+        moduleaadd: function(state) {
+            state.mdcount = (state.mdcount + 3) * 2;
         }
     },
     getters: {
@@ -23,8 +22,8 @@ export const moduleB = {
         mdtwo:2
     },
     mutations:{
-        increment:function(state){
-            state.mdcount = state.mdcount * 2;
+        modulebadd:function(state){
+            state.mdtwo = state.mdtwo * 2;
         }
     }
 }
